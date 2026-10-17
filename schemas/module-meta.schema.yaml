@@ -1,0 +1,122 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://modus.dev/schemas/module-meta.schema.yaml"
+title: Modus ModuleMeta
+description: >-
+  Canonical wire contract for metadata attached to one Modus Module document.
+  Identity stays bound to the physical Domain/Module path; optional fields add
+  authored meaning and auditable source evidence without redefining identity.
+type: object
+required: [schemaVersion, moduleId, state]
+additionalProperties: false
+
+properties:
+  schemaVersion:
+    description: Wire-contract version.
+    const: 1
+  moduleId:
+    description: Stable physical identity serialized as exactly <domain>/<module>.
+    type: string
+    # JSON Schema regexes follow ECMA-262; the final lookahead is a portable
+    # true-end assertion that also rejects a trailing line break.
+    pattern: '^(?!\.{1,2}/)(?![^/]+/\.{1,2}(?![\s\S]))[^/\\:\s\x00-\x1f]+/[^/\\:\s\x00-\x1f]+(?![\s\S])'
+  parent:
+    description: Domain segment that physically contains the Module document.
+    type: string
+    pattern: '^(?!\.{1,2}(?![\s\S]))[^/\\:\s\x00-\x1f]+(?![\s\S])'
+  state:
+    description: Evidence and confirmation maturity; it is not an implementation status.
+    enum: [observed, proposed, confirmed]
+  realization:
+    description: Whether the Module is represented in executable source or only in business material.
+    enum: [business-only, implemented]
+  aliases:
+    description: Deterministic discovery terms for the Module.
+    $ref: "#/definitions/uniqueStringList"
+  owners:
+    description: Explicit owning people or teams when evidence is available.
+    $ref: "#/definitions/uniqueStringList"
+  responsibilities:
+    description: Concise authored responsibility statement; narrative detail remains in Markdown.
+    type: string
+  anchors:
+    description: Reviewable bindings from authored knowledge back to source and public contracts.
+    type: object
+    additionalProperties: false
+    properties:
+      paths:
+        $ref: "#/definitions/uniqueStringList"
+      symbols:
+        $ref: "#/definitions/uniqueStringList"
+      apis:
+        $ref: "#/definitions/uniqueStringList"
+      routes:
+        $ref: "#/definitions/uniqueStringList"
+      locations:
+        description: Auditable source bindings used for impact and anchor-drift checks.
+        type: array
+        uniqueItems: true
+        items:
+          $ref: "#/definitions/sourceLocation"
+  surfaces:
+    description: Product or technical surfaces through which this Module is exposed.
+    $ref: "#/definitions/uniqueStringList"
+  contractIds:
+    description: >-
+      Stable source-contract identities, optionally preserving one exact configured-property
+      placeholder so runtime names remain traceable without embedding resolved secrets.
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      maxLength: 256
+      pattern: '^(?:[A-Za-z0-9][A-Za-z0-9._:-]*|[A-Za-z0-9][A-Za-z0-9._:-]*\$\{[A-Za-z0-9._-]+(?::[A-Za-z0-9._-]+)?\})(?![\s\S])'
+  securitySensitive:
+    description: Signals that authors and reviewers should apply the sensitive-data boundary.
+    type: boolean
+  confirmation:
+    description: Auditable authority supporting a confirmed Module boundary.
+    type: object
+    required: [mode, confirmedBy, confirmedAt, evidence]
+    additionalProperties: false
+    properties:
+      mode:
+        enum: [human, heuristic]
+      confirmedBy:
+        description: Human or process identity that accepted the boundary.
+        $ref: "#/definitions/nonEmptyString"
+      confirmedAt:
+        description: Timestamp or repository-specific revision marker for the confirmation.
+        $ref: "#/definitions/nonEmptyString"
+      evidence:
+        description: One or more reviewable observations supporting confirmation.
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/definitions/nonEmptyString"
+
+definitions:
+  nonEmptyString:
+    type: string
+    minLength: 1
+  uniqueStringList:
+    type: array
+    uniqueItems: true
+    items:
+      $ref: "#/definitions/nonEmptyString"
+  sourceLocation:
+    type: object
+    required: [path, symbol, startLine]
+    additionalProperties: false
+    properties:
+      path:
+        description: Canonical repository-relative source path.
+        $ref: "#/definitions/nonEmptyString"
+      symbol:
+        description: Qualified source symbol at the location.
+        $ref: "#/definitions/nonEmptyString"
+      startLine:
+        type: integer
+        minimum: 1
+      endLine:
+        type: integer
+        minimum: 1

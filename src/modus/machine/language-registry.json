@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 1,
+  "compilerProviders": {
+    "python": "python-builtin/1",
+    "java": "java-javac/1",
+    "go": "go-types/1",
+    "cpp": "cpp-clang/1",
+    "typescript": "typescript-checker/1"
+  },
+  "frameworkProfiles": {
+    "python": {
+      "frameworkAdapters": ["builtin-python-frameworks"],
+      "entryDetectors": ["http", "rpc", "job", "cli", "public-export"]
+    },
+    "java": {
+      "frameworkAdapters": ["builtin-jvm-frameworks"],
+      "entryDetectors": ["http", "rpc", "mq", "job", "public-export"]
+    },
+    "go": {
+      "frameworkAdapters": ["builtin-go-frameworks"],
+      "entryDetectors": ["http", "rpc", "job", "cli", "public-export"]
+    },
+    "javascript": {
+      "frameworkAdapters": ["builtin-js-frameworks"],
+      "entryDetectors": ["http", "rpc", "mq", "job", "cli", "public-export"]
+    },
+    "typescript": {
+      "frameworkAdapters": ["builtin-js-frameworks"],
+      "entryDetectors": ["http", "rpc", "mq", "job", "cli", "public-export"]
+    },
+    "php": {
+      "frameworkAdapters": ["builtin-php-frameworks"],
+      "entryDetectors": ["http", "job", "cli", "public-export"]
+    }
+  },
+  "extensions": {
+    ".F": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".F03": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".F08": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".F90": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".F95": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".astro": {
+      "language": "astro",
+      "role": "template",
+      "extractor": "extract_astro"
+    },
+    ".bash": {
+      "language": "bash",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".c": {
+      "language": "c",
+      "role": "source",
+      "extractor": "extract_c"
+    },
+    ".cc": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".cjs": {
+      "language": "javascript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".cls": {
+      "language": "apex",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".cpp": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".cs": {
+      "language": "csharp",
+      "role": "source",
+      "extractor": "extract_csharp"
+    },
+    ".cshtml": {
+      "language": "razor",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".csproj": {
+      "language": "dotnet-project",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".cts": {
+      "language": "typescript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".cxx": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".dart": {
+      "language": "dart",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".dfm": {
+      "language": "pascal",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".dm": {
+      "language": "dm",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".dme": {
+      "language": "dm",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".dmf": {
+      "language": "dm",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".dmi": {
+      "language": "dm",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".dmm": {
+      "language": "dm",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".dpk": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".dpr": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".ejs": {
+      "language": "ejs",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".ets": {
+      "language": "ets",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".ex": {
+      "language": "elixir",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".exs": {
+      "language": "elixir",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".f": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".f03": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".f08": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".f90": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".f95": {
+      "language": "fortran",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".fsproj": {
+      "language": "dotnet-project",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".go": {
+      "language": "go",
+      "role": "source",
+      "extractor": "extract_go"
+    },
+    ".gradle": {
+      "language": "groovy",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".groovy": {
+      "language": "groovy",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".h": {
+      "language": "c",
+      "role": "source",
+      "extractor": "extract_c"
+    },
+    ".hcl": {
+      "language": "terraform",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".hh": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".hpp": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".hxx": {
+      "language": "cpp",
+      "role": "source",
+      "extractor": "extract_cpp"
+    },
+    ".inc": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".java": {
+      "language": "java",
+      "role": "source",
+      "extractor": "extract_java"
+    },
+    ".jl": {
+      "language": "julia",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".js": {
+      "language": "javascript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".json": {
+      "language": "json",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".jsx": {
+      "language": "javascript",
+      "role": "template",
+      "extractor": "extract_js"
+    },
+    ".kt": {
+      "language": "kotlin",
+      "role": "source",
+      "extractor": "extract_kotlin"
+    },
+    ".kts": {
+      "language": "kotlin",
+      "role": "source",
+      "extractor": "extract_kotlin"
+    },
+    ".lfm": {
+      "language": "pascal",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".lpk": {
+      "language": "pascal",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".lpr": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".lua": {
+      "language": "lua",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".luau": {
+      "language": "lua",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".m": {
+      "language": "objective-c",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".md": {
+      "language": "markdown",
+      "role": "document",
+      "extractor": "extract_markdown"
+    },
+    ".mdx": {
+      "language": "markdown",
+      "role": "document",
+      "extractor": "extract_markdown"
+    },
+    ".mjs": {
+      "language": "javascript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".mm": {
+      "language": "objective-c",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".mts": {
+      "language": "typescript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".pas": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".php": {
+      "language": "php",
+      "role": "source",
+      "extractor": "extract_php"
+    },
+    ".pp": {
+      "language": "pascal",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".properties": {
+      "language": "properties",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".ps1": {
+      "language": "powershell",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".psd1": {
+      "language": "powershell",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".psm1": {
+      "language": "powershell",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".py": {
+      "language": "python",
+      "role": "source",
+      "extractor": "extract_python"
+    },
+    ".pyi": {
+      "language": "python",
+      "role": "source",
+      "extractor": "extract_python"
+    },
+    ".qmd": {
+      "language": "markdown",
+      "role": "document",
+      "extractor": "extract_markdown"
+    },
+    ".r": {
+      "language": "r",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".razor": {
+      "language": "razor",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".rb": {
+      "language": "ruby",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".rs": {
+      "language": "rust",
+      "role": "source",
+      "extractor": "extract_rust"
+    },
+    ".scala": {
+      "language": "scala",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".sh": {
+      "language": "bash",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".sln": {
+      "language": "dotnet-project",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".slnx": {
+      "language": "dotnet-project",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".sql": {
+      "language": "sql",
+      "role": "data-definition",
+      "extractor": "extract_generic_text"
+    },
+    ".sv": {
+      "language": "verilog",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".svelte": {
+      "language": "svelte",
+      "role": "template",
+      "extractor": "extract_svelte"
+    },
+    ".svh": {
+      "language": "verilog",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".swift": {
+      "language": "swift",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".tf": {
+      "language": "terraform",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".tfvars": {
+      "language": "terraform",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".toc": {
+      "language": "lua",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".toml": {
+      "language": "toml",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".trigger": {
+      "language": "apex",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".ts": {
+      "language": "typescript",
+      "role": "source",
+      "extractor": "extract_js"
+    },
+    ".tsx": {
+      "language": "typescript",
+      "role": "template",
+      "extractor": "extract_js"
+    },
+    ".v": {
+      "language": "verilog",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".vbproj": {
+      "language": "dotnet-project",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".vue": {
+      "language": "javascript",
+      "role": "template",
+      "extractor": "extract_js"
+    },
+    ".xml": {
+      "language": "xml",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".yaml": {
+      "language": "yaml",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".yml": {
+      "language": "yml",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".zig": {
+      "language": "zig",
+      "role": "source",
+      "extractor": "extract_generic_text"
+    },
+    ".html": {
+      "language": "html",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".htm": {
+      "language": "html",
+      "role": "template",
+      "extractor": "extract_generic_text"
+    },
+    ".css": {
+      "language": "css",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".scss": {
+      "language": "scss",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".less": {
+      "language": "less",
+      "role": "configuration",
+      "extractor": "extract_generic_text"
+    },
+    ".proto": {
+      "language": "protobuf",
+      "role": "data-definition",
+      "extractor": "extract_generic_text"
+    },
+    ".graphql": {
+      "language": "graphql",
+      "role": "data-definition",
+      "extractor": "extract_generic_text"
+    },
+    ".txt": {
+      "language": "text",
+      "role": "document",
+      "extractor": "extract_generic_text"
+    },
+    ".rst": {
+      "language": "rst",
+      "role": "document",
+      "extractor": "extract_generic_text"
+    }
+  }
+}

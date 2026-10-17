@@ -1,0 +1,1949 @@
+{
+  "schemaVersion": 1,
+  "branch": "modus-open",
+  "commit": "49c51621f378a58d6724eedde4657d9505346d45",
+  "version": "0.0.4",
+  "reviewedOn": "2026-10-04",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "f73c887dda212a05bb753d079c313de32df38f8b448c41be748e30c9bc4efda6",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "bbd9f855d200df1dc4afffe970e8bab19996b1bcd71f21f7bd658de86c165d55",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "5e3f39e19f87d00ec41a2797dd5fe185daec9f4c57e9485f08e3b2e6e4c0c446",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "aa3469bc9ce2a433162443ff23e984db9be15b1f043d05e6a7407e604e301f99",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "4d823360033f38e9461b746c02f43c3045b00de7a970836710a58d0e6f08a60f",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e2f2313e60771d90152634c83a539398f58018a24f6ba6023debde67792e71a2",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "READMEs/README.en.md",
+      "sha256": "5bd248c5e88c8e14c5172a38a7ac8ebe01762656ed47cb23f73f4b9659252069",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "docs/authoring-contract.md",
+      "sha256": "b985400e5285aabdba4b9aad469e5994cb54783a518a84547dc43a551c4e23df",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "docs/knowledge-lifecycle-boundary.md",
+      "sha256": "b3b46e2a4a75697cf412d6afef7691bf1717bc3960c58353a375331000b73d85",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "efcf3d9cbc4528184e29dd2b48e5967d3b054287da6e1936be0027e35dec1c45",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "schemas/machine/analysis-receipt.schema.json",
+      "sha256": "1185d899581f692f3a3b9bcf65711de34790f6277203fc7e4107ebc1b37f0ef8",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "schemas/machine/authoring-context-packet.schema.json",
+      "sha256": "ecc9a0cbcb08fa6e6baeb959eb9d06f1cea54734e9f2205fae7e54dec39b23cc",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "schemas/machine/capability-slice.schema.json",
+      "sha256": "8fd36b4ba4345cd3d1bd7d9c43a3dcc66d922c7ae93d0cd3a83eead460c3d574",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "schemas/machine/evidence-page.schema.json",
+      "sha256": "55fb525ef32d3aebb9d6de4728b5ac1cabc08ab943432cd6d041a263086eb573",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "schemas/module-meta.schema.yaml",
+      "sha256": "1974ac74f479c751d6f83fe679975dc3e1305d4d5747c2a298c5799544addb39",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "scripts/README.md",
+      "sha256": "099739e249dcf71b2d5beebb76505bc4a4e108f62def4ae94c715966220866ee",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/package_smoke.py",
+      "sha256": "793e5c7b880e9a7c5523ea80d5cb84a7a3601aa890fd980888625c47cfb86c49",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/__init__.py",
+      "sha256": "b026b11c495d84f4845ded8c6d93d33368f659c8465cdc8b9d4d5efcda744c24",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/archive.py",
+      "sha256": "2f1f591bc367aa5a82e3f5e1bd9428f7050d8050cbe67c770a8dc436ee03c7fb",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/cli.py",
+      "sha256": "04793a71497647e82fd07223f569c6b9e8e0d573d088847c9ce221ee46633111",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/contracts.py",
+      "sha256": "8f033d3cb40e33ece1ab0c3887ee091afaf1417d2f2d04ec0b6ec283fdb31578",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/diagnostics.py",
+      "sha256": "c515c46853b9f28f8298a401d3b4352be2722d137cc8c2d8c64708405bdedb0a",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/runtime.py",
+      "sha256": "78d28b925be96206e3549a00462f0904d60c6e4ca4c7e167f4df9319d042637e",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/release_smoke/verification.py",
+      "sha256": "39a92b6a39fabf4242a6799c28396c144e805b9e2a7636b81b9322a632aae277",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "scripts/wheel-smoke.sh",
+      "sha256": "116345b0464cf3e376d66626d899817ddedb5c5feedc9d21abe3e916f52c0dec",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "src/modus/__init__.py",
+      "sha256": "9fb5314dfa8c7815dfe96523eed9989c7af960da11e785b5e9565005a52daead",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/__main__.py",
+      "sha256": "c7381cbbf1271c2b69c7b1c08731584de4972acd0c90b048acba01b59249fedb",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/activation_guidance.py",
+      "sha256": "cb527b3db8bd2b83c6a49f4660eb0fbad2d4c3429e36823aeb0b8314ee9dac77",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/artifacts_io.py",
+      "sha256": "4992aa0ee73a359ad6ef1ded3a3baa443861b812ff463741fe2307c7fca3a0c5",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/atomic_writes.py",
+      "sha256": "ba143d2c4d8460e788f2989d2172ac18bf8b7b271e059eb4cdb1b1b6f00a1b36",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/cli.py",
+      "sha256": "d5507389b66c851bb9655a563a0d41e01eb28a9057ef217916844ac1600c1af1",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/__init__.py",
+      "sha256": "2d0aa71f898345c4b975bf044ba2d5424bcfae345ce57266a7889ea2ef05723e",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/analysis.py",
+      "sha256": "9d20d9650be0fd88744854288c537aaffc93edf8d0a509768b9fb2b41a8c755e",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/analysis_display.py",
+      "sha256": "22c595cdb0e73110616d7cabbfd413f9cea4458409fea34e7eb294a3b6c24b12",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/common.py",
+      "sha256": "c9ebc908e34234a1e3d2337a2a6f81a7ee90fe75c25636778f2be2077e5c94f3",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/context.py",
+      "sha256": "98b1412aad1a22ca3acd666f6bdf68c7a812befcd4639dfb381577060c241bdb",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/discovery.py",
+      "sha256": "3390d4a98d2394b3af97f6ca7046f848d775d966b7661ad3c81a79c8e752fce7",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/initialize.py",
+      "sha256": "84edd3bd8bd0ff5dac9a20e22068a8d322e623b1c9e8e29d6cc5ff9c49415335",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/knowledge.py",
+      "sha256": "94a4f9da18354f6e844923bc046902df075106463aae973bb880f6fbda75eeae",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/presentation.py",
+      "sha256": "4c25fa89c80f23160523c91ce6877d4f3bde092ab38b85136e803d1dea3efe2d",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/uninstall.py",
+      "sha256": "c9fdfb048909e7b5b59404c47724bf134bca4feeecf991d6c8550645ebf6fc39",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/cli_commands/update.py",
+      "sha256": "bb48f677f273328fcaef5faf239ba652281c2ebd3e78233b0866cf17dc239f68",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/command_reference.py",
+      "sha256": "6e8ff3d7cabf103017cf9244f8d4a82826aa154402ac29879c21fc0eef86253c",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/__init__.py",
+      "sha256": "971aa961202273a04a437d3848bdf70f38c8beb7d8348fd2b402edf851129412",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/commands/context_cmd.py",
+      "sha256": "0c6a88395b413a7549802bb23d1d2b77cd6cd574d505cc281312b81cdefa590d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/commands/help.py",
+      "sha256": "8ef0de6acd890c38d7fef93477c8a9046f3284cbac1068ee219e19d98435f53b",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/init_project.py",
+      "sha256": "86df78a284e3238a07e144443ca3b6de25c576bf75c2e9f52c1130a0f3d91ade",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/commands/init_report.py",
+      "sha256": "c60c17ee5ef59c021087dc3ba7b8f62d74c5e08bc2e750ffc2ba16bebcaa7690",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/install_state.py",
+      "sha256": "ab000b3c679a0cb0cc9c1ee57dd9dc20b23d462fe1c507a67cc6d1bba1b4607e",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/commands/maintenance_scope.py",
+      "sha256": "c64d8780e2d1fea34762a75f609a7cc2617aaccb568730f5f9d17da7e8271341",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/permission_errors.py",
+      "sha256": "3c41b59494e84e9803801b89bf96f30edc821d533681c041be8325f78d18342f",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/reporting.py",
+      "sha256": "6be1dcd065f9d9e73764ce49a441be83be3ff6bf7164c471a1dfc326e380c996",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/seed_business.py",
+      "sha256": "c5186b130a772d576bbbc6ddcd504570becbd82a43b711bc247436ba80324644",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/commands/self_update.py",
+      "sha256": "f6d037bf35f65a5ad6e3cae6e83ac3503ac6ccaf5560c7350fe6719f1964f4ea",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/status.py",
+      "sha256": "9febaff503e03a850dc33b115ad2bbc677861f80017e8da5707e761d8a925ba3",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/uninstall.py",
+      "sha256": "1b2b08ba2930619dc278f620fe3c10938dfc555f992c32c805c8b245eea655df",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/commands/uninstall_report.py",
+      "sha256": "d776a5aa70390c6ead6f2d34d6ec784c09b471838dfb921740beea7922d362bc",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/uninstall_self.py",
+      "sha256": "abbdbffbae4b572c99802ebb374b9a7274951dd42933b959a3af97c870360cc2",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/update.py",
+      "sha256": "9d625fba99231d6c3b9491e6f27ea7d516419da6703e1e4657b030d704087fb3",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/commands/update_report.py",
+      "sha256": "3c5733b21d038d89cf29f6b8294f2c9b03571bf9bbf0a8f9fac10fe382d18d25",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/commands/verify_anchors.py",
+      "sha256": "052ca5d34901d2632b38ae0d03d982c0127bd6d06dd7c3892d5ee716d980db1c",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/commands/verify_knowledge.py",
+      "sha256": "448ff7701b2426b5028ad1b6661bea2b1070e8b6934acbd89c7bc4975b6d7c83",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/config.py",
+      "sha256": "101ca85f11704066e1e19a3d7175c76b763a3538c70028a3ce506893fae101f9",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/display_labels.py",
+      "sha256": "36fb7a90c7d4c64433f3368ca6634bebea0d9cca357afe55192623169edd1c00",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/git_hygiene.py",
+      "sha256": "4e9b09fde0803483c5bba7f51267616fbcf35a996cea4927204b34f1595a6ccd",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/hooks/__init__.py",
+      "sha256": "7462a902a6553d207186ddda9d27daae09c7098decca6743f5c0098b025d1c71",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/bootstrap.py",
+      "sha256": "74fc312b529db65af631240573960bbfe885a086252f007c9cba316183192c46",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/context.py",
+      "sha256": "51d7dd0ebed137884692ae90b61925c67d72e4bc313c070a5f9251a2df68a9db",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/contracts.py",
+      "sha256": "62afd9070190cfa541e76d865b65dbf6ce2afee038b4d6583292023917e8e043",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/environment.py",
+      "sha256": "c77fc4e9dd89653575da09415c02a95287c2dab4d1bcec6a026338f1d8dfe049",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/protocol.py",
+      "sha256": "641382802055e6ebad415f21901ed42370a7bd258487d8e09b81c7defabddfeb",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/hooks/runtime.py",
+      "sha256": "94b69bd0b5abfab17b219710f560b37afce62c9a3974ea9df9c5cd329510da4b",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/knowledge_identity.py",
+      "sha256": "f439fc1da570c05d0eb332fe160979a2588879da33cfc6462ea135a510c78049",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_reader.py",
+      "sha256": "1e6dc8f902ecc433258d46e7a7359cabf39c077912dcc04a98ffaa4b73c7bfe9",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_seeds.py",
+      "sha256": "77bf3778b24d3c7b4a6b0c1f388cdad185e48f0ac3779c0bbe53a1f3eb1ed6a4",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_update.py",
+      "sha256": "0341e761e55e053b0d7ba832455dd327196dec7073c05d4e5e91ce741d239b0e",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/__init__.py",
+      "sha256": "cc766e9739ea1daa0bddb3280db9e89b0e74fdc1059c522f539b52be54ee19a6",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/authoring_card.py",
+      "sha256": "6a565b1e8f022b1405ef51b7dda3e3e6ef2e4377c078a8778286956ef59d19ef",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/discovery.py",
+      "sha256": "6adbf996fcf500cd5f5a1bddc447f02ee7527df25ea226a5e53e4fe8dfac5e13",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/markdown_integrity.py",
+      "sha256": "948a4bd6fb6cb7c2202f5648dccf8914e5f40d308c4bac3cc7d18eb96b9b3f2a",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/metadata.py",
+      "sha256": "129c1f428185ea9fa1bd8e1dc1d1747201f1974f04b8c51fb1aa8e1671c11cbb",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/models.py",
+      "sha256": "ec98f89fec673e48548f6a8ff84dcf909d4d36e49a39c15d3bb5660184e2c94d",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/publication.py",
+      "sha256": "75fb1f247e4e37142368c2a6ee6ec0404590304552c95b3649046291d06da4e0",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_verification/structure.py",
+      "sha256": "22a5b1e78a34ff0798b13a235cd995b6354bf9b37f5c4361b4f79c6cab4e1b8d",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/knowledge_write_session.py",
+      "sha256": "1d43f7ed83735963d431bacca78fddeb5d70171ca59e01b0223bc3ced88c59b5",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/machine/ARCHITECTURE.md",
+      "sha256": "0a4624be01a392c5824642664ffaf05083b8ec6e6f85ab12592e4fe47129f2c6",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/README.md",
+      "sha256": "15d99d7e60f43fe19ba771ed1e7e16691c064cbcb018dcb27c148cbf50658a1c",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/__init__.py",
+      "sha256": "73e83baca9fa7cd651907e186b5c06baa976d2db07d11c6414a420309a8f09a9",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/api.py",
+      "sha256": "b450e0e6dcda9fb5946b3e6ac163dca6025f484d8cbd1f613fd85187d69f2f32",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/capability/README.md",
+      "sha256": "17c22dd2d3240cc5ac13c46a6810af20e2f77be2faedc10a45783ab0fde92bf3",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/__init__.py",
+      "sha256": "01aed29d9cb3e5e31a6ebc6299a814a6391ba7710b69c2d6ca7735fb56224fad",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/composer.py",
+      "sha256": "42844f3ac842f20f45646298525b2eeeb572e25a45b832719e7640d832141088",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/composition_model.py",
+      "sha256": "67a33522e0996e79ae2caf850499491f0377da44149df5c8362f7081a6706c8f",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/contracts.py",
+      "sha256": "f26ad6e86f6da0796827ab171ce8d8e7a73d428e57bd3f29104c7b9a649123cd",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/input_normalization.py",
+      "sha256": "31fbb610d6cb596461778002bf44aec524d56313880abfca706950bc3b00d63c",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/lifecycle.py",
+      "sha256": "28da61d112d03049083eff9925bc23ddd86f539f10e39fb5176cf74ef81c8238",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/seed_selection.py",
+      "sha256": "2e98ada30b7462df8fe582ccacb6f976ef125f3d7a9f3e9fccd72251990a6fc6",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/capability/traversal.py",
+      "sha256": "e403af51d0f652e4701fb38eaf3162e22ad4bcb335626a54397a08fd3e7526c3",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/README.md",
+      "sha256": "eac3a8a360dc7720a037c32014a2ae797cdd15b14360632fceea49f8a384f6dc",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/__init__.py",
+      "sha256": "44d1babe33d46e5d9c3e48e2800723e213fab4a2fb94a7ff95c72344440e181a",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/contracts.py",
+      "sha256": "351f8e42a2c0de425cb8e13e9868d3dd0713022e129dc8b12faf257a8de671fb",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/input_snapshot.py",
+      "sha256": "8a2a96eca852c726c2b4457f3948bbe40aaa418c71bd014a6699f564ebe25413",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/lifecycle.py",
+      "sha256": "8020835e96eb56e0bd5c9565348a39c9aa8f7ed92553dc47769b444516a87ac3",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/scan.py",
+      "sha256": "0708a5fdd550f48991ec990cf0fd582c2dfd0e657d86f7b5108f1d27c4e048d9",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/source_coordinates.py",
+      "sha256": "edde8fcb74d0f21d4b71c125b2302f33ed02854753cbf47523cd6b4b2bcfcf8d",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/source_filters.py",
+      "sha256": "94ee00a99dc74de8e9b7ab5af29e633d4fc3053656b946bdfb6a41b5c95eb508",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/source_inventory.py",
+      "sha256": "06b2cf5e86b98aea90a18cc350983ef240b63448bbbc17495e6aa9317b2807fd",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/source_roles.py",
+      "sha256": "23ca9664e48d8302434c350ab4f5fa43b1b65d5ba12734b80aeb1f6aca104bb5",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/corpus/source_snapshot.py",
+      "sha256": "b492a71f012e11156f1e44fe9702a18bbed71704e3ca73b4767a17bef0996866",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/errors.py",
+      "sha256": "8851354a9d85565599d50de904beb76e792d5eec614e5b445a93ef331a1f7f4a",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/facts/README.md",
+      "sha256": "7b3fa124bc072aec338d29e71c0dba702b415e3ef9f01a3fe3ed46673d2479db",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/__init__.py",
+      "sha256": "de3dd8cadb531ae378a3cb6572003bfe410e5782da4a5cd51dcaa849648aba3e",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_context.py",
+      "sha256": "fbff422fbacd6ab7d839ae42547f8c6381b36ffa4c1be052dd4ea08c3ff78349",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_contracts.py",
+      "sha256": "5a4c5374b31b4ffb7687bd5fa0c7f3a39b81b7b7b9dbc9479a833a630078e9b2",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/__init__.py",
+      "sha256": "1c177b36d0be9322b460a6320fe70564b1508c087a61dd9f052794031e8bf9da",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/base.py",
+      "sha256": "0cbc5e364de1fcdf95bb26d1feeb5ed4f5a38768a01caa1947ad25f2391738fc",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/cpp_resolver.py",
+      "sha256": "bb15fb389a53a80c62f0eb886f0bc9b39140b6a46ad6921f7380c6e75e9be93b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/go_resolver.py",
+      "sha256": "448ea7646ba11d25f926ce0afb47a6d6c8c0cdfab06da3a860ab14b68a98e1e3",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/java_resolver.py",
+      "sha256": "3efb7c637065b3cd326eb714db846b6e1fbfc5ade45bc90d8111c45594ed735b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/python_resolver.py",
+      "sha256": "c5c75db72cd8c3a3506ca8370fbfc176f84d1119f10f65b4e3b64854d454b515",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_resolvers/typescript_resolver.py",
+      "sha256": "2a9f032021f0c5291ada927f72504d21d9a1f714aae405880887e2f97cf5049e",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/build_support.py",
+      "sha256": "1f92025f11a62fbd28d1fc9eedfdf4471f55d51a3fec9273cd85f2ed03a549b4",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/__init__.py",
+      "sha256": "08ae063670082241d8ea1b765bcefa3757d8b7f467fda7bcc4b0b1157faaff4b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/cache.py",
+      "sha256": "c974549860317369f6562142faa2ee827d3a392558caff357d2fc342a55a1408",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/cpp.py",
+      "sha256": "4fb54f6c9ca3f39ad3f425fb435c64d99b822c7fadfc38fe2009c7cced44fc8d",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/go.py",
+      "sha256": "b3248f2b606a10d35aebb4b44eb7665ab5a41407fe6633ff3b590bd6b25c1c56",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/java.py",
+      "sha256": "5bf7b59778526762cf64e4b31967c91d41d71d81b01ff6d6a951b410b7cf1815",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/merge.py",
+      "sha256": "787a148243ec1c79b4b80057da061338fc2527def0681287c58136682d646c2c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/models.py",
+      "sha256": "b19652e37db2beec5cea3ee163ab8fd2f7b038b963ea6971f1862e28d158e43c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/process.py",
+      "sha256": "46085b47e98948ff61044ebe11532cc4032b6ced1c24e2763774d5ff0450950b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/python.py",
+      "sha256": "50f799df8f5ff3df1e80d84dea44453bf74be99e061cb202922b96af3b61abdd",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/compiler/typescript.py",
+      "sha256": "e55bddd1b9299049ece6232d76b4ff0c1a8721ab90a2d4ced93c0c64e3b8ceef",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/contracts.py",
+      "sha256": "a6f92c51e11995bdc99170f7165aabd0dc5baa954a92aa775859492abb42b10b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/entry_contracts.py",
+      "sha256": "08577c6c89702ffaeb785718a011351c32810e99b8e11ffdfa7c090195f6c23c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/entry_observation.py",
+      "sha256": "0b6d4ae459b8ada83ad012305f3a9b41f528c63810b6fddc3c0273862ad265a3",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/extension_registry.py",
+      "sha256": "484b51878b088149bf9cd913cd68b2cb5735d2e41fdd86a4f95898046520c437",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/extraction_cache.py",
+      "sha256": "c4a9ef72cbdfe742b255fc3ed8318845e2f084f9a5cef0989523a6c110e606d1",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/framework_facts.py",
+      "sha256": "4e89ae90c790a96c20ea85ae29c99cabf72a3e1edec184d0984be3a318c68cce",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend.py",
+      "sha256": "ac3a99c383c68f6e3c9c1b489492d5b986c8ec91e3545dad766a77a1d88aefd3",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend_context.py",
+      "sha256": "6f53e3edcadbf2fb113e298eac5620ff6d6ba20364382530c74580949c089d13",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend_frameworks.py",
+      "sha256": "5693d7e634efda95eeed3dc363a6d6c211357ca3c7c30edd9a4a8aae7e730953",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend_routes.py",
+      "sha256": "a0ea278b5c5f8dc4160d3c354be3f025b89fbba62208229178e7fac794b3a720",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend_server.py",
+      "sha256": "e7301b84ada30f955ffe00a3c9b25de72c3f6a746364186cae663a761b50991b",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/frontend_state.py",
+      "sha256": "b3f971b86cd935846dc10d1ab2f3bbd793946a6132534b6d002812a2b68d4a1f",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/generic.py",
+      "sha256": "23d1e2da4f9467753a857881d9908131ab64cc68fbd06e622bd652e2bcffa78d",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/language_capabilities.py",
+      "sha256": "db9793a6cf7dd3f202f47c6ef8d36cf5bfb6fbbc9de154b7971c9a46e828966a",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/lifecycle.py",
+      "sha256": "b9b6c59e01723d2aa831cf712eab15f9053731a309c8bc0e18f2a132b2736a6c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/native_binding.py",
+      "sha256": "75f73418ad2f3a28468013b69670400b5db9eda7d74c042d076c00ca893b8c7f",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/native_parser.py",
+      "sha256": "61afb826c146ac550d7acd0ac23fa6fea5b5fc42df2467ace8487dcb2c0076e4",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/native_syntax.py",
+      "sha256": "287070ad1727769a69f5a9a0681c2208843004b56c333f27fab465329bd6a3a5",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/native_visitor.py",
+      "sha256": "b92af86c02bac78487abcd944b58a17eb1bee44d514b337d4b943024a5a86904",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/provider_assets/ModusJavaAnalyzer.java",
+      "sha256": "5bb6850fcf3683f0167fb9419643fdc2e50cad9a0c18808d3b3d69c81e245c8a",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/provider_assets/modus_go_analyzer.go",
+      "sha256": "f44fa2fffab3f87662f62ca5d80e5ed214a6f216a943d7eb19350ce92513bdfc",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/provider_assets/modus_typescript_analyzer.cjs",
+      "sha256": "90c0a58d00f69a1e0d757affb0ce0ffbd3ad9d8d4a879696a0e4baaff7e90b1f",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/rule_signals.py",
+      "sha256": "98c1d12254f651c8cb62821b255c6a3295ddc0e53addb9ab49f67d03a4b40ae9",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/search_metadata.py",
+      "sha256": "8b4d042c3bda483192753b4590f667203fda7f89c2138ef33d3f2bb7db950a30",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/semantic_contracts.py",
+      "sha256": "7e82a34b7c83dd74bd5d3a500bc61ade67d2403946a481444ab0d5d525f2d5fe",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/semantic_ir.py",
+      "sha256": "86d9b3faf82348fb33902a61283c4368aa4318a15222f29ec2905fbd12ca16d7",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/semantic_providers.py",
+      "sha256": "9e66a18b84807d5e5787ee1d9054434bbdf3e5f490b1e9b2caa0738a4bbbd2d7",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/source_contracts.py",
+      "sha256": "8d4673be04eaa4da0d47fc4b73263d521fce851ddf8a67902cdf50204591ea44",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/source_evidence.py",
+      "sha256": "6833ff368da9c6150ad09330ea1abc2b56bd877e63abc56b9a4a93974b6ecb70",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/structural.py",
+      "sha256": "ac902de4e001f930fa0ef3063298ccbd46637b6b7d42ff240c9b5343211a420c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/facts/value_summary.py",
+      "sha256": "4ad50e3b690b5449ce158a602a372ad20893ee13a95a1ed63e560116b366593c",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/implementation.py",
+      "sha256": "864b8edc3c5a1e4902bbc336de8a18bb72bd97c52e5102afd0e6ae95822d159e",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/language-registry.json",
+      "sha256": "120501b48400f075efd9ed9fe998f3545d46d2fafcf59a56c650b35f9cc7c0f1",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/languages.py",
+      "sha256": "749249427dfd8b03ecc64e716c4e4d5b43e807bf777b32b5e097cbc4064fe27d",
+      "guide": "references/modules/machine-corpus-facts.md"
+    },
+    {
+      "path": "src/modus/machine/packet/README.md",
+      "sha256": "0d8d74a9abf98d4e2ba6a7cd6a067538072748795795891cf4a42ec8f9c37592",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/__init__.py",
+      "sha256": "f25542dc4fe6c4feffdaafe27a4cda9ea2adc0199e74bfb20b20ac018ea69f7a",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/context_builder.py",
+      "sha256": "af3ffd4defa2d4b50e9773d7d67273a774318324fe5386f8deb233777d95ee2f",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/contracts.py",
+      "sha256": "c84c0c4bf3a03a5f1437081785595492b555dc5e95475abf9b5c1c64ab5c2525",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/cursor.py",
+      "sha256": "ea31310adfc56fc42a780bf2c1db5584fbf8f050241701a66b12471e27100e2d",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/lifecycle.py",
+      "sha256": "155f9c15552267fd7ecf55f9bae21a8ecb6d3ca01640a6e29463e0ee94f23902",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/packet/query.py",
+      "sha256": "a4754667c3b74ee5133c473b1f5d20d10198c8c6a4769a08a2ead81792caa6e6",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/pipeline.py",
+      "sha256": "e6a44508de548fdb0f0943ad0c12175555abb9f827fc19c2133da18612b5f8ff",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/progress.py",
+      "sha256": "4adaad68ed03d1805defc590f520237912bb56bd44c600229746dd88e96826f8",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/README.md",
+      "sha256": "78841c9e47fa990f2fed7b67967103042d1ea1b7052c37711ba086396bb70d57",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/__init__.py",
+      "sha256": "7bcde0d97d19e141831e1f12edf0a2b3a8eefddc9651db1a27476624705b02ee",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/community_signal.py",
+      "sha256": "53c6acc22af57ca5d7e54c6040e5a19e804aeddb210b4fe67c9aaaf04bc454b8",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/contracts.py",
+      "sha256": "a9e3fc5ced3cb5a0157f938897c572397f32e444ae7c15f5c9458c8ced7d07fe",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/lifecycle.py",
+      "sha256": "5ca4bdc581710ee33ac270924e33db9b5b63ca4809c4787967ba5523a7b758f5",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/proposals.py",
+      "sha256": "b6b2a18e09a235c18323349b795a972e93482c597cf83ed5c8003b7361a5335c",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/publication.py",
+      "sha256": "1dec60dbef269c7a5d24a732be860e7a5f0e8320f5e9ddc45023348eb779072d",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/scope_candidates.py",
+      "sha256": "469f9492ba5e43cea530c7b99ea1d6712f225355b12429386c47f560b70f9b20",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/scope_profiles.py",
+      "sha256": "ac1c744d290b35dde21ba9d8cfeaefc4713eb4d1009ede33030a4c90a606ad1f",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/projection/views.py",
+      "sha256": "d1d74eaff9daebbdf2f630b91cdb3066a55b4189268a49481d143427b783c994",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/receipts.py",
+      "sha256": "f6c32f468176efe8dbd66683c8c15d284d035c399cf80dadd4e73cbab33707a8",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/README.md",
+      "sha256": "ed566eec820248bbaa30175b41e24c0131e1c49b1f5f3e2f531c4debcc0aebb4",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/__init__.py",
+      "sha256": "4227b378e032b98293f8edb803a459b371b9e9b8dc9b26b3d1be50e75af15a5a",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/contracts.py",
+      "sha256": "f986d7c558613a61383af6279752e4044badab8b99d62df7b090c9c4fbd730fb",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/evidence_graph.py",
+      "sha256": "ac656c2e961661b6d2ba554e65c67573f16a1da8588ae72e991a53c2f267621f",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/lifecycle.py",
+      "sha256": "1956cc31a9d4d0f2701bb656c4ffd9b73d9d2b0a06d0b8532d1e3cf1406fff2f",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/method_graph.py",
+      "sha256": "ac3c1c82c522656898db676b6fa7a18123d62e71f528de23aac35621a41f3e20",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/navigation.py",
+      "sha256": "5a3085ac14a437a60f7d223fefc92727fb5e6dfc8fe835f31311092c74a3f859",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/reference_outcomes.py",
+      "sha256": "6df5f78c48bef35b98a23980aa9e5c524cbd8ca9ce008295006c03f32a2214b7",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/semantic_reconcile.py",
+      "sha256": "936045ac55f9f1f4fd96072a5d2cb42cba2074a33d8510329bd51bfaa7fc5dcb",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology.py",
+      "sha256": "453cbb22fa0de678d413be60d9399c934e59c100ea50c4b604b4339e5e3fb75e",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology_model.py",
+      "sha256": "a8426689a77ddf1ca34bb070f34527806f85834bfa5b1f6d01d78e2aa4ca568a",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology_records.py",
+      "sha256": "db309b24b0f202956e043ec5271be92afab7870a4fe137359856e777f411d5cf",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology_resources.py",
+      "sha256": "324864b9911ca226ce3b8fb36898505f11e444702f631c25b7d090494cbab1be",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology_rules.py",
+      "sha256": "0401f6d05b19fba4abdc5db637aae652ca3c4bc033dc6a6744bf7025544a19fe",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/topology_validation.py",
+      "sha256": "f096f3294fc4826046d00adfeb339b94db0cea4b4cbf34f23f082fc8ee5653c1",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/resolution/view_quarantine.py",
+      "sha256": "f7496c458b4d8ed1c0134a70717ccc8f1625f3fa0617fbd9eaf136be07b4e977",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/runtime/__init__.py",
+      "sha256": "440968fe1473d89055dc2e4e9b75c354e0488ecf622ceff36a712d1b5348fa3d",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/runtime/resources.py",
+      "sha256": "c5fa4d7d16689dfbfb8d8859a6d9d27668aa31e8595e7eccd742d6b11fde41fa",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/runtime/toolchains.py",
+      "sha256": "00df9af6b1fbfb00e4f0a999d50f0206c3ab6ae5d559fc38564363c3faa36d56",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/states.py",
+      "sha256": "0b9ff5dc1c60a6ab256530cbaee32f7755734a573db91f4a6327ebe3acf58098",
+      "guide": "references/modules/machine-resolution-capability.md"
+    },
+    {
+      "path": "src/modus/machine/store/__init__.py",
+      "sha256": "dae015a19e2ea28e21414f63977130c4447f561dbfdb66fc4fb798a0ad3bc672",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/bundle.py",
+      "sha256": "2015c7b89a6a825d3689ca4cfd53f72050d30be83dcf02e99db65a4a726d8892",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/bundle_catalogs.py",
+      "sha256": "fe8608a03766740bb686523ac7030097a746a5a7a78c6165ffdd85c7df2e46db",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/catalog.py",
+      "sha256": "a8caf3b011fc3c48b9f095a31c28bb9f3923ed8d655420f00d8a200f71ac5d0d",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/catalog_building.py",
+      "sha256": "6dd0c2be58c91165cb6e2a627a3691e4aec5d3c7b2ea557a4005cabf9803e5e4",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/contracts.py",
+      "sha256": "71c86f6506cce33681fbbcc706a729576ae68db3b45878514a432bdb37e1da25",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/evidence_records.py",
+      "sha256": "15255ca30b8e6c5dd5a5e5950971cd3f9548acd1a771625f66dcee077c729cc8",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/fingerprint.py",
+      "sha256": "c6ebaefd2f620c63d62bd5f64eb707875fdba2526fe0ffdf8145af06af38ba38",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/ids.py",
+      "sha256": "4957796a43eb10b170520290bf1179c24c94aadead448e00025ffb017583fdeb",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/machine/store/scope_catalog.py",
+      "sha256": "c29cb54514bf92d75b763d5786d3dc4468b2c6418931775de75f37e976a90a56",
+      "guide": "references/modules/machine-projection-packet.md"
+    },
+    {
+      "path": "src/modus/manifest.py",
+      "sha256": "c79569b84f0a8e444ae0e4b6dc4f29d7c571b615fca5d60b337becd75264dcae",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/orchestrator/README.md",
+      "sha256": "d34454d780e25a6c8de49c27dd59ec939489d8ade7022847f416a826dbccc20f",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/__init__.py",
+      "sha256": "e9c82b643e7a465ec2b439b842f06e6edad0934a27625fee470a2baebca8f908",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/context_resolver.py",
+      "sha256": "5f6ba53118027e66f13d432021371be7b1c8c48699552f143a6f101267bfd002",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/evidence_search.py",
+      "sha256": "0f5f6d2abf8f5174691dda130a9936e9af27dfa9ae758e5ed3fcbebf409bb68e",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/fallback.py",
+      "sha256": "27fe0884e4c546c7fb5962f432706f2958e3b0611a19e727219b7748b48ef129",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/knowledge_sync.py",
+      "sha256": "a4f9eb5915f348e3e5c14b5fbff4569dfe78c72a19146acfdebaf8f8e066a01f",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/orchestrator/models.py",
+      "sha256": "8f1b59f18da0e858209720543753825327b29621c249124a3091359d3644aead",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/module_meta.py",
+      "sha256": "f2d70a562f3b9444e18893e0cef79b9829c85fdbeafbf0f860bbf0045350cea6",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/orchestrator/path_scope.py",
+      "sha256": "d74e3e2c99dc1e05d492668d84ce9db8891643dccaea7c43990334ce3fb57ebf",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/preflight.py",
+      "sha256": "64bd9dc8abea61cae9c0a4a11a35650a46afbbb3c3ed2a65b598fe2aab334556",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/query_terms.py",
+      "sha256": "6cccf26378685ffff14b56378d8449e6ffacc1ec83281d4553c54484a6a0bf67",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/orchestrator/search_policy.py",
+      "sha256": "f6effa59a98dcb42e9479427848c12d4dfdf2053473bc3947b8f8212be5a09c9",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/paths.py",
+      "sha256": "ab7f9a7b6297c275569bb42c9f3385cd7e7d1e7a199c8b5154edc562a8be9c9d",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/platforms/__init__.py",
+      "sha256": "3322cc2fc642fec4b030e930d5b21561bf7ccf7cef4a25a40e25c830d0ad5758",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/base.py",
+      "sha256": "49f2b675d91b23002065ad3813248a96d7e31d9083d37d2af5e16a0cc1055ded",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/claude.py",
+      "sha256": "3f7a666635417af600fd11c978440e6e25bd1698ab70f2e630306a9b38594bc5",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/codebuddy.py",
+      "sha256": "247c58a54ba3c98c85db24a58fd1c1f5ba790dd3ac349722d5e385826ad3901f",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/codex.py",
+      "sha256": "69a7e32f06380641c65170347b32f50daa5916439177c69201d650de9746f3f5",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/cursor.py",
+      "sha256": "6769238bc1e43af3765f1a275e4a00f0f73551aff71f323e7f3392b30ec7fcae",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/display.py",
+      "sha256": "37b8b6e38c5bc676ffc74400bec147d88932eb215f9cd3ba9ab16670f6ef6d4a",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/hooks.py",
+      "sha256": "3b5c238e0d9db6ba7cf93a4c9d4f9db5d05cfcd728b8c5525c17075bc15e5f7c",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/models.py",
+      "sha256": "beb3b2bae7799e4fee6160566fb907bd259c44a6dbafe8dcb0b38365e4fa0695",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/registry.py",
+      "sha256": "de6ad2f27c37fcde3bed631b33fa2132862348498379540b62fdb370e57a1122",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/rendering.py",
+      "sha256": "69a8ecbdbc19ca63d03cacdc31cbdbfa21c7df8b59314154be29823942524088",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/platforms/sections.py",
+      "sha256": "fafcd531426d439f3d9d03b70c8c4b23e401f2a652e2a9ef7d11cac9c543c0c9",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/precedence.py",
+      "sha256": "ab5f6f5d3acaeac213494e4db566ec87ae0a2751aa593497a141b355e6b30011",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/project_activation.py",
+      "sha256": "8cba4318eb8543313d5cf1b4dce4279a7d5c9aaca9a05f6d17a5dcf04836bbb0",
+      "guide": "references/modules/platforms-hooks.md"
+    },
+    {
+      "path": "src/modus/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/retrieval/README.md",
+      "sha256": "11848d7f54c2e45265b721a2a28a771de21b014de204748e0b6aff8ac42db73d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/__init__.py",
+      "sha256": "150bcbb9eb7ab4c9fc97980e6f4f170974687b4d448569d7d15308c5b80b75cf",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/budget.py",
+      "sha256": "5f46d534f4c5f1b60f519d8c07e4d0f1c98ae899fe9649eee6697d64c6993b1d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/delivery.py",
+      "sha256": "b24179f9901ea1e9025f7a861b17a90723b4954bc2911634cf8e3014e5ffa05c",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/index.py",
+      "sha256": "06f7442bf17f10e0cea18419cd50f28b69d4042fc408b099b5ea5908fdf358b5",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/pipeline.py",
+      "sha256": "0a2a6f93c1e48b950bed5d1d3513ba521407c5cf7129de199cb547c1f073371d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/query.py",
+      "sha256": "2a11c905cfcd189a95b04d11b98475a7952e9a11e75c1f9428ed307bec9885a0",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/routing.py",
+      "sha256": "573451820f2e6693ea69cef2804400c5de122af5e592c1c9316ceae0963016cc",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/runtime.py",
+      "sha256": "f3244f229e19381a0fc6430747370c3daf05d75c6e11a78fad90fcc5d889df26",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/settings.py",
+      "sha256": "8a5357ff120ffca9a982e12570ea2154bf4fad3b77913cd767985b7c9e37bab0",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/__init__.py",
+      "sha256": "599cda0ea7c20fb0d9c1034e09d24a3222be01195bc6a1bb1a7ddd156673f74e",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/discovery.py",
+      "sha256": "b6bdad621399d4b6ec7c8b3825c21671b02f42259a39c56ccd0982ece7bc3e6d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/documents.py",
+      "sha256": "4a37519e009710158112e62232c41840cb2694fccc5ba991592c553d8c3bc907",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/lexical.py",
+      "sha256": "accde47397f50849b52b024014b8e98ccdc9d2ec30384e73b21ad66194af1cf1",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/ranking.py",
+      "sha256": "5e47c03140e813b30d0e96a5bfbaf3325136c303657bd1789a9ef28e41b0490f",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/sections.py",
+      "sha256": "734600faaf005569e48ac26fc5cdbd2801342a3af900a587bc3cfd5514c3dc6d",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/selection.py",
+      "sha256": "8948ab28381c3f280a2c0f349ad1d5f87c649f2eccbe7ec99f7d01bed47e740a",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/retrieval/stages/settings.py",
+      "sha256": "37d7ae5731550039a811c05895fe4bf9650490df390281de794bf21fc6cf823b",
+      "guide": "references/modules/context-retrieval.md"
+    },
+    {
+      "path": "src/modus/scaffold/README.md",
+      "sha256": "b77ff3c130a1923883847268912b493beee5d972e3470e90911bb504bd9cd2d5",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/__init__.py",
+      "sha256": "fef776aff415a034dd9aa8fc6a1914ba3d752690521792f1f9981fb80ea08195",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/catalog.py",
+      "sha256": "60e9eec1e6040a46e5b3f26300838cbcce26f37d4108fe2fbb0f3104359238fc",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/project.py",
+      "sha256": "2b5b9242308a9077707396aa42982e9c877b20facc46ab2dff9140be8998e7cd",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/README.md",
+      "sha256": "beabda493cbfabea8164ed5cd0fd8c97ab333350aee987f5047e858b6aebeb33",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/commands/init.md",
+      "sha256": "521eed5f814208730041960e984f0b4685e84092300a5d662d40fb9a1b7ded88",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/commands/reinit.md",
+      "sha256": "96c75600fbc3196c9dbec24e923fed93461a0b1200a19e2fcc8852602f6d7812",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/commands/update-knowledge.md",
+      "sha256": "21ad5cf68e9e09635ff008cabedd37f33e380f6a6bd2c5b7824eb5043c14c63f",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/business/experience/index.md",
+      "sha256": "f39cd05c46544502f0616728c768024114433510d7df12c456476ae336b363f0",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/business/index.md",
+      "sha256": "07f8160872b43964393f09769f41e4700e02ee282fb25245035e5587efef2cfd",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/business/meta/index.md",
+      "sha256": "70dcc8b877c38f06adbf3175949be537f137d25885acb8f9a7228d9d10c6bef7",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/business/scenario/index.md",
+      "sha256": "86d2b91a8ec1fa5fb11d44bbc1861be19e789ac0a68b70e5ee149ebdf00dd4a4",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/constraint/global-standard.md",
+      "sha256": "e59fcd28c8dc2772a15a97ce3dae958458e63dff7dd196bcc86adfef9058bd74",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/constraint/team-standard.md",
+      "sha256": "8c32e45361a20a4cdbb6505b968164f541cff07f068b14d6328e17289346de19",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/knowledge/handbook/SKILL.md",
+      "sha256": "982e73fac70f305ce4615a3093d5ca95cbe85fb99c1c7a0bc633937c8a8d8ab1",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/SKILL.md",
+      "sha256": "df9dd5e199c8445ea098d8ffd6006ac511211c9ea538a14e443e42fa9937e86a",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-extraction.md",
+      "sha256": "454035002e9775a0fdfad9189b1d77dbc1b6ff20f4687985a84726f8f3afc246",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/cpp.md",
+      "sha256": "7196864ee911ef1e1dbfe2770252f41daf905ca1dca4e06fe9c0b64328766b2d",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/dotnet.md",
+      "sha256": "145886dc67b07994c40736ad04b62d3e78ec36c283ffdd3acbd694727db70758",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/go.md",
+      "sha256": "1ac05936638744cbf5926ccbf56ec91ea24a58d25e67b772aa2ee2fe79fa0e03",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/java.md",
+      "sha256": "c478733c27b662095d89fb3eca185ef3a1d09200ef5b26bb9feddbc745324846",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/kotlin.md",
+      "sha256": "77bb05f0289f8071093b5157ed82ba1791628f06aa2970f10b1dcf6b017e3d49",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/php.md",
+      "sha256": "9d94eea3a939afd27ba0dcb557d3d055251f1fb8161f8b3b01aa12c9c0ab98fd",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/python.md",
+      "sha256": "f94d7d2631248bd5bb050531ddfbfcfbbd2f4a61f1c2f76ab98ad6d32b741d4d",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/rust.md",
+      "sha256": "dd68aa1a4747b6eba1fedd6e82c64d58367329c7c4fbb0eb5beff213301099a3",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/constraint-profiles/web.md",
+      "sha256": "aa9887f1716f7c96b28cebb43d4f533f5489fa1c205c700504d712e377c789ea",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/global-standard.md",
+      "sha256": "947fcebd4d1ab2d1f14df7ec74c2cd9e92cc5ba7c6c42b7faaf62809462b29a4",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-init/references/workspace-init.md",
+      "sha256": "38830741c5ceb6523181452305b11cf20e3631e59393625cd49ac1c67f7694ab",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-reinit/SKILL.md",
+      "sha256": "78a767e06b664313e3ca4d22ad357beed1ea5be40c4ae93cfdf97e10f1d5e614",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-sync-knowledge/SKILL.md",
+      "sha256": "4e29508e8d87686944b6ab7329cb6f604bbe019c1e815d9418cddd251b5764f3",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/modus-update-knowledge/SKILL.md",
+      "sha256": "f1815d0853710c1ac5e34ae527eddae25b27ce7deba9a29bfce4ad0078d1f4e2",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/SKILL.md",
+      "sha256": "e036eee8b3de2a53e8f7ef48404088d0c2da7a15a207b24de21990d04cf4fd19",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/domain-worker-prompt.md",
+      "sha256": "8f3e5fc783c1bc36614410bbc5aedc821296c28c4d535944d87c6852460bb3f0",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/index.md",
+      "sha256": "eaa158dbb2515000179c77c72671c3d4aa09fcaff8ab7464b6438378b6a95a6c",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/dotnet.md",
+      "sha256": "214d2be11efddf6da5845fe640ce57a5967d2df91f275840fd40bfa59a725d7a",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/generic.md",
+      "sha256": "726fb4b7b3801e4487c389c50f834309a0820c24404fb8f1cde3211ecf2900e7",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/go.md",
+      "sha256": "e495fd83c9ce95eb6b62b4f1c1a441748facdcced98caf7e9a2d58ef92dc88ac",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/iac.md",
+      "sha256": "a981258e7da8b99bb1425cbf46e40895af06365d9f6e389d0d0f72952e3a1787",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/index.md",
+      "sha256": "fb0edcb48adfe54a65cf1c92f26af92b0c98c93a8b3d17d9b089fe33370ff705",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/java.md",
+      "sha256": "c84b9750a54290566ca11bbb24b04ed0c18d35fb844d8792a21ed6542b3e0662",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/kotlin.md",
+      "sha256": "f07cc28739eb6f9946bcffd63958233670dc450c9b91401ec1d662cb966fa204",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/native.md",
+      "sha256": "e2342d6e6574d1b368bad61ea1d9c74d23f0e74380e78c7dba78ee4b59b5ee52",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/php.md",
+      "sha256": "d65d8eff8f5b8cbd6a7fbcf53eb5a9163a1b4a4c53e021c11979574656c52515",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/python.md",
+      "sha256": "d98488f42e40866cf82efcb7a4efbbf9d93b9ce0bb2d3d155ef7642772d64dad",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/rust.md",
+      "sha256": "2790dd8fcb85368c9c641ba422f388b05cc3a8a97686cfcda1370e32a739a724",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/language-adapters/typescript.md",
+      "sha256": "142031e0cf4ec83b3a01a2330cb2e039cd1e1f06cca5b8d6a0e63a91e4b0cc58",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/machine-packet.md",
+      "sha256": "fdbf164dd25f5274fc6fd49eaf2dc6d39221c31a4037bd6da13e0c8e042f45fe",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/scenario-closure.md",
+      "sha256": "a4f9d573d5706c4cf515eea6c1ef64def857519f8f53e74f686a7deaaa7fa2f4",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/scope-modeling.md",
+      "sha256": "5347caf360e77c83a387c8b1095a017b727389e520041b56fc339e429fc5d49e",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/api.md",
+      "sha256": "9266b4652c522588d9f3cc7879f198f1f9917d5e478fa544c03c464650c75e72",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/business.md",
+      "sha256": "3ab8973d362ac53c3d805a0e38e330bf582998b48e088bfe588eb3086b386f79",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/collaboration.md",
+      "sha256": "ccbe9f8e8669fe04902eae0b8b299deae7206494f682b70f13464c598e265f3f",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/domain.md",
+      "sha256": "ecfb148b8dc1b1245bd88f012b8a8ca5293b8d4666ccaab353cf4d883b15337d",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/infrastructure.md",
+      "sha256": "5d08d88f52c43ba948df61c368d16f1ef5c2b2caefb1b21f2b4cf5adf5e27e3e",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/module.md",
+      "sha256": "fbbad59fb3d030546e56c56c648129757f6c11e85477f4d144fe3cc377eff654",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/object.md",
+      "sha256": "65b223706c0706a1e9c57deea2273d7d488997051abbdec0b1e112abdb306894",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/root.md",
+      "sha256": "ccc0abac205c0e56466070e18a95b829980d7b1f9b856cfdbff956a194c42b50",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/rule.md",
+      "sha256": "6cbe7136a445994ec757774bb432cb00700b1c54817a3775e63fe1efcd4262c3",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/state-machine.md",
+      "sha256": "92435fcd891269d65bd2ff61c68c10c13341ce02297b51b0ad98cec807bc0549",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/team-standard.md",
+      "sha256": "864c3e823435ceaba33e595fe5763eb0944f6d8f46c2115b76ff20d974687757",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/topics.md",
+      "sha256": "8d3d473bb4ba6dd2647d747e045fb2fdaa46b3b4e35e3cb3a1b85292dd148efb",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/index.md",
+      "sha256": "0e402eddf22ea0d89f3cb0d9a568354c768f4be7b06a5e16169d4029dab23cc2",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/layout.md",
+      "sha256": "a5a6290b16009bc8ca1e85a8556e52b58f7157cf4aa33ca836b064ae2c63028a",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/localization.md",
+      "sha256": "78e9b8c0cd224886e6cf00ee5129f7a86d426c07e7a1641bddc7b7471e2ca978",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/surface-profiles.md",
+      "sha256": "f87cbd9b00ea306a12b3588d61d962f4e9ab2e69064b09c49148582141248f1e",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/visual-expression.md",
+      "sha256": "c4982a052b864a039c575e90631915af017b79963587067a48f38384d86e5a0a",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/index.md",
+      "sha256": "b2ab59e011c5ca3a35fc3cc0456697a40a2a8d12dedf9e08b03c57066d2c72ec",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/parallel-domain-authoring.md",
+      "sha256": "830b288c65fde63681c3f60b54f21e8ad9ccb856daf519754523677dfb3eafba",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/authoring/publication.md",
+      "sha256": "fd8bc19e73cfab160939f9a8931d437f8268329f80c699194285f618e74e9e91",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/constraint-usage.md",
+      "sha256": "70a2c2a334843f6e22881ee312f845ed008e5cf24965867dd34bfda140a0c31d",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/framework-update.md",
+      "sha256": "e3773d931b599993d6b79ff0f5e38c8f81ecd36694d5f485525e7027800a47d8",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/templates/skills/using-modus/references/router-details.md",
+      "sha256": "4583cfbcd863bf3fe2ef731e43da9aab2d727061c18ac40fe0512e2844cf8719",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/scaffold/writer.py",
+      "sha256": "f7d831e144537f30cebfea50c077653a640c1b6fba7c33afa058d55d0ea2997d",
+      "guide": "references/modules/authoring-templates.md"
+    },
+    {
+      "path": "src/modus/schema_resources.py",
+      "sha256": "25a6257b20cec57c0ae3f7512924073c36e89db21aca99cf37fd645cd39de166",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/scope_models.py",
+      "sha256": "80e025340da5e6db72d207d75e1bf54b146af4846176ca509b76654b63ccbc97",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/scope_resolver.py",
+      "sha256": "2fbdc112effcfbe2d0a048ae1cdd1647f8e89b8eb9042b9ecf7cd6c2a70fca2e",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/sensitive_literals.py",
+      "sha256": "45ff81d4680134103bcc76ec4d6f2328d342f682695b90ad27fd9e75ebbc6cf0",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/skillmd.py",
+      "sha256": "ea500f6867e83598512b7586b423cac3dc364ffe0e4285b5fdd32ca26065d72c",
+      "guide": "references/modules/knowledge-publication.md"
+    },
+    {
+      "path": "src/modus/source_listing.py",
+      "sha256": "56bcabb510280816df6c2ab6c9aeefa166ed317c05470e6964f8eebf91afc225",
+      "guide": "references/modules/workspace.md"
+    },
+    {
+      "path": "src/modus/surface.py",
+      "sha256": "11749e5be795ac0ffe1d2155e870b271379b8e1e4f921d5fe9e6cb31772620b1",
+      "guide": "references/modules/cli-maintenance.md"
+    },
+    {
+      "path": "src/modus/text_tree.py",
+      "sha256": "36ced01fd9f989a08214defaa4b52f004df546ba8527bb1076e3b7f188c031c5",
+      "guide": "references/global-overview.md"
+    },
+    {
+      "path": "src/modus/versioning.py",
+      "sha256": "9ffd925c8a978a6e43e6252981d6be7a6fbb64574784930cf74615c94d582506",
+      "guide": "references/modules/installation.md"
+    },
+    {
+      "path": "src/modus/workspace.py",
+      "sha256": "321c6a251bf4d767c8b5bdc43a68c4c19a53bf1677def8507366289f99bc3d85",
+      "guide": "references/modules/workspace.md"
+    },
+    {
+      "path": "src/modus/workspace_maps.py",
+      "sha256": "17b84351e5a263c123939b4c38c89c5a6283963c2a845c797630e2414bf90185",
+      "guide": "references/modules/workspace.md"
+    },
+    {
+      "path": "tests/README.md",
+      "sha256": "7a5fa7147a9caebfd5b81ea91840f4fcc9f514261c5ba98484b75a472228a846",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/_support/__init__.py",
+      "sha256": "53014b22b7912ebf280f51a198097be191649c7444f3bff3656405ebc3000297",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/_support/analysis.py",
+      "sha256": "5bb52e7f70a165f34cc6e3c769b07a40619b708650534692f81343e3f4e96454",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/_support/markdown.py",
+      "sha256": "5408d8e26e89e212b9d56db7b01102df59cef9bbb2f6ead26e903a8dfef29403",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/_support/paths.py",
+      "sha256": "ea262a8809108e795575d76c8f430bc3eee487428ca2bd49b1dfc03d4aa4e323",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/_support/sensitive_samples.py",
+      "sha256": "dd3a7742279f04518b56435512607d5a9a4772eabc12b56bff9a49def09cd9d2",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/fixtures/simple_service/order/order_repo.py",
+      "sha256": "d359dd9d30ada70335d8c79e4cf82722d4fed1b1fa54d9e4327e150a0ee86fec",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/fixtures/simple_service/order/order_service.py",
+      "sha256": "8c9edf6a618890721572353c10bb6198883ab970a426260ea0d1294c021ae41b",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/fixtures/simple_service/payment/payment_gateway.py",
+      "sha256": "b519f09b1f255f50cb585daf2f2bf8c30bd863676b1fb205d47eb1e48764acbe",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/fixtures/simple_service/payment/payment_service.py",
+      "sha256": "18c38acdfb1778fdf9a7f617558b3a0cd214e7235b475ef46f42afcfd2f4fbf3",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_architecture.py",
+      "sha256": "5433b92b8238602b03e4fa8ba6d5cac8ae89af3d8e0048c9c888093bcd9606d0",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_capability_composer.py",
+      "sha256": "4c8cd44384523d5b2c9cd9deb073a3e7237a098f7bc0d31673d75907d5634051",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_context_builder.py",
+      "sha256": "3c1c26c6018ccd72197dd04b3b2f2da28a2c451c0c4309974c9e212a4acbe343",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_contracts.py",
+      "sha256": "ef0b4432560ffa3ae717d056f836530bd1e921b344057690e10d36b42589ea4f",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_corpus.py",
+      "sha256": "6a0dc122bff2314703c637a8adcd075f1e7183bb68df6e1d99405598d3dfa310",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_extraction_cache_identity.py",
+      "sha256": "90716ca10388447ff03a0298dbb85c261e3b8563dd567e9f947b8efa433f881e",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_language_fixtures.py",
+      "sha256": "849d8495c97a950b0fbf571eda5a40fdafed753f46100840439adc7b0d0a81fe",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_lifecycle_degradation.py",
+      "sha256": "d7b5a922a37e79adc3e29fe4cebcbd627c15aa7ac96abf89e6a84aa701478441",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_progress.py",
+      "sha256": "77716e7f8a9e5fd61d18ce9fc1681c564a17ace1501a6f677b74c2b8be6a9355",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_projection.py",
+      "sha256": "357d35aefae418e2da98e52fff5c36391fccf6efcdb05e719693b74a11f7c95d",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_public_contracts.py",
+      "sha256": "d280bb7b5dc1ad106e7cc62c4dc6803f77c2162596c6dfcae5537ff30c55900b",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_states.py",
+      "sha256": "f8f64c5f6db495e6116eff48ec7d0813b8a32a70bdb2e875b9e98316521986a2",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/machine/test_store_validation.py",
+      "sha256": "4b660047e9fc944ae410f4be379cdc412e86ee43cc1cd88d319e5567a380f199",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_analysis_pipeline.py",
+      "sha256": "5fc24d0cec0b3abfb38b4e2efd16938d4d7a13bd64e7a96c32ffc28dc1953315",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_cli_boundaries.py",
+      "sha256": "b0f44ff5a0a85a318d0ccbfbfa8c2dc2a209df6f699b7ca75e46ac1ebe2832f4",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_cli_localization.py",
+      "sha256": "5697d1d0a2d107e9dc04011dfbd8023bc424e443fbb5c4d3350ef9f0928d709b",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_documented_cli.py",
+      "sha256": "e06133792333234d67b120ba9e7bddeaf819aa7aba70bf70f058f589b6c124e8",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_evidence_selection.py",
+      "sha256": "430ea223a2c8763fbfd179c17b1b7ebf89c1c304ef2134f49b57ac9d80dc83c0",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_hooks.py",
+      "sha256": "db18467c8a5dcb1e31d375e8ed1e5d76b10dc5e1b862b2b00f7f7086ce2fea1c",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_install_safety.py",
+      "sha256": "ae2f3fec0110fa81ebf23d9e053b4535649660053582aaab4a82e1ecad30ee6b",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_knowledge_retrieval.py",
+      "sha256": "d6f00249f41b4c409a1b5fb4b931f5cc8f57cb26c4392486ee8ec33b7cee5d90",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_knowledge_update.py",
+      "sha256": "f312eeda20ebbe3ad549f815eed544e3690927019a78d7e027e757396cb4af38",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "4803ceb1fea73531b21538e631d7cc5792fac0e47e9b96be36040ec0fef2b6de",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_platforms.py",
+      "sha256": "817f86f13aa843341fdf32a86d254712027902afa2a0999e78ad54f9b4ab3099",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_project_lifecycle.py",
+      "sha256": "44110a6945766aa9e13845222e8f7a01aac810cc1a1f4c5f0536abecfa270d0c",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_release_smoke.py",
+      "sha256": "4ff67578f41756c8ebae5ff173fe287087501006f29c1176c2e0c31530933a26",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_scaffold.py",
+      "sha256": "2383dde0dfde287cccd34a07b9251e087664bbf0e0aa43f920ff1cd550bc964c",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_sensitive_literals.py",
+      "sha256": "ef1834f5e3591cb603344f1a37a08bf836cc671f5a2fd3555a1714907d8e6261",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_verify_knowledge.py",
+      "sha256": "df6a9db7274828add220207636b85a0f25f861f7968fefd6e8759e7bfc9b1f83",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "tests/test_workspace_lifecycle.py",
+      "sha256": "a5cac804116ca4f6d3ba32491d7eb39c88d33d04b976429a6a5fb29e28ec9cb1",
+      "guide": "references/modules/quality-release.md"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "9466fd4f6c929f1fc074f3ecf67c77cc91ef112be74cd2ca5f4301594fd6566f",
+      "guide": "references/modules/quality-release.md"
+    }
+  ]
+}

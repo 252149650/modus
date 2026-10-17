@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://modus.dev/schemas/machine/capability-slice.schema.json",
+  "title": "Modus Capability Slice",
+  "description": "An evidence-backed behavior slice from one public entry to its terminal effects. A slice records resolution loss and uncovered branches explicitly; it is never a business capability inferred from names or directory structure.",
+  "type": "object",
+  "required": [
+    "recordKind",
+    "capabilityId",
+    "entrySignature",
+    "trigger",
+    "entry",
+    "evidenceTier",
+    "degradationReasons",
+    "terminalEffects",
+    "representativePaths",
+    "resolution",
+    "receipts",
+    "expansionHandles"
+  ],
+  "properties": {
+    "recordKind": {
+      "const": "capability-slice"
+    },
+    "capabilityId": {
+      "description": "Stable content identity derived from the entry, authoritative objects, and effects.",
+      "type": "string",
+      "pattern": "^cap-[0-9a-f]{24}$"
+    },
+    "entrySignature": {
+      "description": "Canonical signature of the public entry that seeds traversal.",
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "description": "Observed invocation or event that reaches the entry.",
+      "type": "object"
+    },
+    "entry": {
+      "description": "Resolved entry evidence carried forward from the relation model.",
+      "type": "object"
+    },
+    "evidenceTier": {
+      "description": "Strength of evidence supporting the slice, from strongest T1 to fallback T3.",
+      "enum": ["T1", "T2", "T3"]
+    },
+    "degradationReasons": {
+      "description": "Stable diagnostic codes explaining every loss of evidence quality.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/reasonCode"
+      },
+      "uniqueItems": true
+    },
+    "orchestrators": {
+      "$ref": "#/$defs/stringList"
+    },
+    "authoritativeObjects": {
+      "$ref": "#/$defs/stringList"
+    },
+    "stateTransitions": {
+      "$ref": "#/$defs/recordList"
+    },
+    "terminalEffects": {
+      "description": "Observable changes outside the traversed call path.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/terminalEffect"
+      }
+    },
+    "representativePaths": {
+      "description": "A bounded set of contiguous entry-to-effect paths.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/representativePath"
+      }
+    },
+    "sharedDependencies": {
+      "$ref": "#/$defs/stringList"
+    },
+    "boundaryCrossings": {
+      "$ref": "#/$defs/recordList"
+    },
+    "pathStatusCounts": {
+      "description": "Counts of all traversal outcomes, including branches omitted from representative paths.",
+      "$ref": "#/$defs/countMap"
+    },
+    "omittedCounts": {
+      "$ref": "#/$defs/countMap"
+    },
+    "resolution": {
+      "description": "Resolution floor across every included path and terminal effect.",
+      "$ref": "#/$defs/resolution"
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/coverageReceipt"
+      }
+    },
+    "expansionHandles": {
+      "description": "Precise references for optional follow-up evidence retrieval.",
+      "$ref": "#/$defs/recordList"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "resolution": {
+      "enum": ["exact", "candidate", "heuristic", "unresolved"]
+    },
+    "reasonCode": {
+      "type": "string",
+      "pattern": "^machine\\.[a-z]+\\.[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recordList": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "countMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "pathStep": {
+      "type": "object",
+      "required": ["entityId", "symbol", "anchor"],
+      "properties": {
+        "entityId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "terminalEffect": {
+      "type": "object",
+      "required": ["kind", "target", "anchor", "resolution"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "data-write",
+            "state-transition",
+            "event-publish",
+            "external-call",
+            "file-write",
+            "cache-write"
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "object"
+        },
+        "resolution": {
+          "$ref": "#/$defs/resolution"
+        }
+      },
+      "additionalProperties": false
+    },
+    "representativePath": {
+      "type": "object",
+      "required": ["steps", "status", "resolution"],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pathStep"
+          }
+        },
+        "status": {
+          "enum": ["terminated", "truncated", "unresolved", "cycle", "boundary"]
+        },
+        "resolution": {
+          "$ref": "#/$defs/resolution"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coverageReceipt": {
+      "description": "Execution and evidence completeness for one traversal or upstream scope.",
+      "type": "object",
+      "required": [
+        "recordKind",
+        "producer",
+        "scopeKind",
+        "scopeId",
+        "status",
+        "completeness",
+        "reasonCode",
+        "counts"
+      ],
+      "properties": {
+        "recordKind": {
+          "const": "coverage-receipt"
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopeKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopeId": {
+          "type": "string"
+        },
+        "status": {
+          "enum": ["analyzed", "reused", "skipped", "failed"]
+        },
+        "completeness": {
+          "enum": ["complete", "partial", "fallback", "unavailable"]
+        },
+        "reasonCode": {
+          "type": "string"
+        },
+        "counts": {
+          "$ref": "#/$defs/countMap"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

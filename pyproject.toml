@@ -1,0 +1,234 @@
+[project]
+name = "openmodus"
+version = "0.0.5"
+description = "为编程助手构建有证据支撑、可持续维护的项目知识。"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Modus contributors" }]
+keywords = [
+    "code-intelligence",
+    "coding-agents",
+    "developer-tools",
+    "knowledge-management",
+    "static-analysis",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development",
+]
+dependencies = [
+    # The CLI is a public compatibility boundary. Typer 0.26 and Click 8.4 change
+    # help rendering, exit codes, and suggestion hooks that Modus exposes directly.
+    "typer>=0.12.0,<0.26",
+    "click>=8.1.0,<8.4",
+    "questionary>=2.1,<3.0",
+    "rich>=13.8,<16.0",
+    # These libraries define the on-disk knowledge and configuration contracts.
+    "pyyaml>=6.0,<7.0",
+    "jsonschema>=4.0,<5.0",
+    # Deterministic initialization analysis builds an ephemeral in-memory graph and
+    # publishes only a bounded JSON evidence bundle for init/reinit authoring.
+    "networkx>=3.4,<4.0",
+    "tree-sitter>=0.23.0,<0.26",
+    "tree-sitter-python>=0.23,<0.26",
+    "tree-sitter-javascript>=0.23,<0.26",
+    "tree-sitter-typescript>=0.23,<0.25",
+    "tree-sitter-go>=0.23,<0.26",
+    "tree-sitter-rust>=0.23,<0.25",
+    "tree-sitter-java>=0.23,<0.25",
+    "tree-sitter-c>=0.23,<0.25",
+    "tree-sitter-cpp>=0.23,<0.25",
+    "tree-sitter-c-sharp>=0.23,<0.25",
+    "tree-sitter-kotlin>=1.0,<2.0",
+    "tree-sitter-php>=0.23,<0.25",
+]
+
+[project.optional-dependencies]
+# One explicit verification surface keeps contributor and CI environments aligned.
+# Upper bounds turn major tooling upgrades into reviewed maintenance decisions.
+test = [
+    "coverage[toml]>=7.0,<8.0",
+    "mypy>=1.19,<3.0",
+    "pytest>=7.0,<10.0",
+    "ruff>=0.5.0,<1.0",
+    "types-jsonschema>=4.0,<5.0",
+    "types-networkx>=3.4,<4.0",
+    "types-PyYAML>=6.0,<7.0",
+]
+
+# 命令名与分发包名分开声明，用户入口在源码和安装包中保持一致。
+[project.scripts]
+modus = "modus.cli:main"
+
+# 构建后端版本有上界，打包行为变化需要显式维护。
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+# The source archive is intentionally auditable and minimal: project metadata,
+# reproducible resolution, schemas, documentation, source, and verification tools.
+[tool.hatch.build.targets.sdist]
+include = [
+    "/LICENSE",
+    "/ARCHITECTURE.md",
+    "/CONTRIBUTING.md",
+    "/README.md",
+    "/READMEs/README.en.md",
+    "/docs",
+    "/pyproject.toml",
+    "/schemas",
+    "/scripts",
+    "/tests",
+    "/src/modus",
+    "/uv.lock",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/modus"]
+
+# Schemas are runtime resources; package them beneath the importable namespace so
+# installed wheels and source checkouts resolve the same logical contracts.
+[tool.hatch.build.targets.wheel.force-include]
+"schemas" = "modus/_bundled/schemas"
+
+# Quality gates
+
+# 未知配置和标记视为错误，避免拼写失误导致验证被静默跳过。
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["src", "scripts", "tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+xfail_strict = true
+addopts = ["--strict-config", "--strict-markers", "-ra", "--tb=short"]
+
+# 静态检查按最低支持的 Python 版本解释语法。
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+extend-exclude = ["tests/fixtures"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+# Formatting owns line wrapping; E501 would duplicate that policy with less context.
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["_support", "modus", "release_smoke"]
+
+# 覆盖率同时记录分支，资源目录不作为可执行源码计量。
+[tool.coverage.run]
+branch = true
+source = ["src/modus"]
+omit = [
+    "src/modus/_bundled/*",
+]
+
+[tool.coverage.report]
+skip_empty = true
+show_missing = true
+
+# 开发、测试和发布脚本共用类型检查入口，边界契约统一维护。
+[tool.mypy]
+python_version = "3.11"
+files = ["src/modus", "tests", "scripts"]
+mypy_path = ["src", "scripts", "tests", "tests/fixtures/simple_service"]
+explicit_package_bases = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+
+# The strictness frontier names modules whose contracts are fully typed. Expanding
+# this list is a deliberate migration step, not an all-or-nothing repository switch.
+[[tool.mypy.overrides]]
+module = [
+    "modus.commands.install_state",
+    "modus.config",
+    "modus.machine",
+    "modus.machine.*",
+    "modus.machine.errors",
+    "modus.machine.implementation",
+    "modus.machine.languages",
+    "modus.machine.pipeline",
+    "modus.machine.receipts",
+    "modus.machine.states",
+    "modus.machine.corpus.contracts",
+    "modus.machine.corpus.lifecycle",
+    "modus.machine.facts.contracts",
+    "modus.machine.facts.lifecycle",
+    "modus.machine.resolution.contracts",
+    "modus.machine.resolution.lifecycle",
+    "modus.machine.capability.contracts",
+    "modus.machine.capability.composer",
+    "modus.machine.capability.lifecycle",
+    "modus.machine.projection.contracts",
+    "modus.machine.projection.lifecycle",
+    "modus.machine.projection.proposals",
+    "modus.machine.packet.contracts",
+    "modus.machine.packet.context_builder",
+    "modus.machine.packet.lifecycle",
+    "modus.machine.packet.query",
+    "modus.machine.packet.cursor",
+    "modus.machine.facts.rule_signals",
+    "modus.machine.store.bundle",
+    "modus.machine.store.catalog",
+    "modus.machine.facts.compiler.*",
+    "modus.machine.store.contracts",
+    "modus.machine.store.evidence_records",
+    "modus.machine.facts.extraction_cache",
+    "modus.machine.projection.scope_candidates",
+    "modus.machine.projection.scope_profiles",
+    "modus.machine.facts.semantic_ir",
+    "modus.machine.corpus.source_roles",
+    "modus.machine.corpus.source_snapshot",
+    "modus.knowledge_verification.*",
+    "modus.manifest",
+    "modus.orchestrator.*",
+    "modus.paths",
+    "modus.retrieval.stages.*",
+]
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+warn_return_any = true
+implicit_reexport = false
+strict_equality = true
+extra_checks = true
+
+# Parser visitors deliberately manipulate foreign AST/CST dictionaries at the
+# parser boundary. Their exported adapters remain typed, while local visitor
+# bodies are exempt from generic-argument and fully-annotated-helper checks.
+[[tool.mypy.overrides]]
+module = [
+    "modus.machine.facts.entry_observation",
+    "modus.machine.facts.framework_facts",
+    "modus.machine.facts.frontend",
+    "modus.machine.facts.frontend_context",
+    "modus.machine.facts.frontend_server",
+    "modus.machine.facts.frontend_state",
+    "modus.machine.facts.native_binding",
+    "modus.machine.facts.native_parser",
+    "modus.machine.facts.native_visitor",
+]
+disallow_any_generics = false
+disallow_untyped_calls = false
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+warn_return_any = false

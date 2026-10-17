@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://modus.dev/schemas/machine/analysis-receipt.schema.json",
+  "title": "Modus Analysis Receipt",
+  "description": "Publication receipt for one immutable analysis bundle. The two digests are the complete identity needed to reopen it; coverage, diagnostics, and timings are bounded operational summaries rather than stored evidence.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "status",
+    "bundleDigest",
+    "baselineDigest",
+    "coverage",
+    "diagnostics",
+    "timings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "description": "Wire-contract version.",
+      "const": 1
+    },
+    "status": {
+      "description": "Only fully published and verified bundles receive a receipt.",
+      "const": "ok"
+    },
+    "bundleDigest": {
+      "description": "Content identity of the published analysis bundle.",
+      "$ref": "#/$defs/digest"
+    },
+    "baselineDigest": {
+      "description": "Content identity of the repository snapshot analyzed by the bundle.",
+      "$ref": "#/$defs/digest"
+    },
+    "coverage": {
+      "description": "Bounded counts describing which inputs and evidence layers were covered.",
+      "type": "object"
+    },
+    "diagnostics": {
+      "description": "Machine-readable summary of degraded or unavailable evidence.",
+      "type": "object"
+    },
+    "timings": {
+      "description": "Optional stage timing telemetry in milliseconds; it is not part of bundle identity.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python-version: "3.11"
+          - os: ubuntu-latest
+            python-version: "3.12"
+          - os: ubuntu-latest
+            python-version: "3.13"
+          - os: ubuntu-latest
+            python-version: "3.14"
+          - os: macos-latest
+            python-version: "3.11"
+          - os: macos-latest
+            python-version: "3.14"
+          - os: windows-latest
+            python-version: "3.11"
+          - os: windows-latest
+            python-version: "3.14"
+
+    steps:
+      - name: Check out repository
+        # NOCA:QCloudAkCheck(此值是公开 Action 的完整提交 SHA，固定依赖身份，不是认证密钥)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        # NOCA:QCloudAkCheck(此值是公开 Action 的完整提交 SHA，固定依赖身份，不是认证密钥)
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Set up uv
+        # NOCA:QCloudAkCheck(此值是公开 Action 的完整提交 SHA，固定依赖身份，不是认证密钥)
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          enable-cache: true
+          python-version: ${{ matrix.python-version }}
+          version: "0.12.13"
+      - name: Install locked dependencies
+        run: uv sync --locked --extra test
+      - name: Run tests
+        run: uv run --locked --extra test pytest -q
+      - name: Check lint and formatting
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+        run: |
+          uv run --locked --extra test ruff check src tests scripts
+          uv run --locked --extra test ruff format --check src tests scripts
+      - name: Check Python type contracts
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+        run: uv run --locked --extra test mypy
+      - name: Verify distributions
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+        run: ./scripts/wheel-smoke.sh

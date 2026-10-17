@@ -1,0 +1,46 @@
+# Python environments and bytecode
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test, analysis, and coverage state
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.nox/
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Distribution artifacts
+dist/
+build/
+.eggs/
+*.egg
+*.egg-info/
+
+# Local configuration and editor state
+.env
+.env.*
+!.env.example
+!.env.template
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Repository-local agent projections and generated workspaces
+/.agents/
+/.codex/
+/.claude/
+/.cursor/
+/.codebuddy/
+/.modus/
+/.worktrees/
+/.benchmark-state/

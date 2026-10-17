@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://modus.dev/schemas/machine/evidence-page.schema.json",
+  "title": "Modus Evidence Page",
+  "description": "A budget-bounded evidence selection from one verified analysis bundle. Positive observations and coverage gaps remain separate so absence or degradation can never masquerade as evidence.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "bundleDigest",
+    "baselineDigest",
+    "view",
+    "items",
+    "coverageGaps",
+    "nextCursor"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "bundleDigest": {
+      "description": "Identity of the immutable evidence bundle queried for this page.",
+      "$ref": "#/$defs/digest"
+    },
+    "baselineDigest": {
+      "description": "Repository snapshot to which every witness on this page belongs.",
+      "$ref": "#/$defs/digest"
+    },
+    "view": {
+      "description": "Purpose-built projection used to select evidence; this is not a graph query language.",
+      "enum": ["scope", "services", "evidence"]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "coverageGaps": {
+      "description": "Explicit unavailable or degraded areas discovered while producing this page.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/coverageGap"
+      }
+    },
+    "nextCursor": {
+      "description": "Opaque continuation for optional expansion, or null when the selection is complete.",
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "identifierList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "witness": {
+      "description": "Exact current-source anchor supporting an evidence record.",
+      "type": "object",
+      "required": ["path", "symbol", "startLine", "endLine", "sourceDigest"],
+      "properties": {
+        "path": {
+          "description": "Canonical repository-relative POSIX path.",
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "startLine": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "endLine": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "sourceDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceRecord": {
+      "description": "One positive observation with its resolution and provenance layer.",
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "kind",
+        "recordId",
+        "candidateIds",
+        "resolution",
+        "sourceLayer",
+        "witness",
+        "details"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "enum": ["entry", "relation", "effect", "resource"]
+        },
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidateIds": {
+          "$ref": "#/$defs/identifierList"
+        },
+        "resolution": {
+          "enum": ["exact", "candidate", "heuristic", "unresolved"]
+        },
+        "sourceLayer": {
+          "enum": ["cst", "project-binding", "compiler", "reconciled"]
+        },
+        "witness": {
+          "$ref": "#/$defs/witness"
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coverageGap": {
+      "description": "A precise absence or degradation, anchored when a source location is available.",
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "kind",
+        "recordId",
+        "reasonCode",
+        "candidateIds",
+        "witness",
+        "details"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "coverageGap"
+        },
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reasonCode": {
+          "type": "string",
+          "pattern": "^machine\\.[a-z]+\\.[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "candidateIds": {
+          "$ref": "#/$defs/identifierList"
+        },
+        "witness": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/witness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

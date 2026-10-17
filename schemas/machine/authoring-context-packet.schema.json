@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://modus.dev/schemas/machine/authoring-context-packet.schema.json",
+  "title": "Modus Authoring Context Packet",
+  "description": "A bounded, task-specific handoff from machine analysis to knowledge authoring. Every packet identifies omissions and offers precise expansion handles; consumers never need to exhaust the underlying evidence store.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "intent",
+    "bundleDigest",
+    "baselineDigest",
+    "requestedScope",
+    "proposals",
+    "capabilities",
+    "representativePaths",
+    "authoritativeObjects",
+    "terminalEffects",
+    "ambiguities",
+    "coverageReceipt",
+    "sourceAnchors",
+    "expansionHandles",
+    "omittedCounts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "description": "Wire-contract version. The initial explicit contract includes authenticated bundle identity and exact requested scope.",
+      "const": 1
+    },
+    "recordKind": {
+      "const": "authoring-context-packet"
+    },
+    "intent": {
+      "description": "The single authoring decision this packet is shaped to support.",
+      "enum": [
+        "scope-discovery",
+        "module-authoring",
+        "constraint-extraction",
+        "service-boundary",
+        "reinit-diff",
+        "coverage-audit"
+      ]
+    },
+    "bundleDigest": {
+      "description": "Content identity of the authenticated analysis bundle used to assemble this packet.",
+      "$ref": "#/$defs/digest"
+    },
+    "baselineDigest": {
+      "description": "Repository snapshot against which every included source anchor is valid.",
+      "$ref": "#/$defs/digest"
+    },
+    "requestedScope": {
+      "description": "The exact caller selectors used to bound this authoring decision.",
+      "$ref": "#/$defs/packetScope"
+    },
+    "proposals": {
+      "description": "Evidence-backed authoring proposals, never automatic business conclusions.",
+      "$ref": "#/$defs/recordList"
+    },
+    "capabilities": {
+      "description": "Relevant entry-to-effect capability slices.",
+      "$ref": "#/$defs/recordList"
+    },
+    "representativePaths": {
+      "description": "Selected paths that explain behavior without exposing the full analysis graph.",
+      "$ref": "#/$defs/recordList"
+    },
+    "authoritativeObjects": {
+      "$ref": "#/$defs/recordList"
+    },
+    "terminalEffects": {
+      "$ref": "#/$defs/recordList"
+    },
+    "ambiguities": {
+      "description": "Low-resolution evidence that requires explicit author judgment.",
+      "$ref": "#/$defs/recordList"
+    },
+    "coverageReceipt": {
+      "description": "Per-scope execution and completeness receipts retained from upstream analysis layers.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/coverageReceipt"
+      }
+    },
+    "sourceAnchors": {
+      "$ref": "#/$defs/recordList"
+    },
+    "expansionHandles": {
+      "description": "Optional, precise follow-ups for evidence intentionally omitted from this bounded packet.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/expansionHandle"
+      }
+    },
+    "omittedCounts": {
+      "description": "Counts of records omitted by category to satisfy packet budgets.",
+      "$ref": "#/$defs/countMap"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "recordList": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "countMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "packetScope": {
+      "type": "object",
+      "required": ["candidateIds", "capabilityIds", "boundaryIds", "paths", "symbols"],
+      "properties": {
+        "candidateIds": {"$ref": "#/$defs/stringList"},
+        "capabilityIds": {"$ref": "#/$defs/stringList"},
+        "boundaryIds": {"$ref": "#/$defs/stringList"},
+        "paths": {"$ref": "#/$defs/stringList"},
+        "symbols": {"$ref": "#/$defs/stringList"}
+      },
+      "additionalProperties": false
+    },
+    "stringList": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "coverageReceipt": {
+      "description": "Execution and evidence completeness for exactly one producer scope.",
+      "type": "object",
+      "required": [
+        "recordKind",
+        "producer",
+        "scopeKind",
+        "scopeId",
+        "status",
+        "completeness",
+        "reasonCode",
+        "counts"
+      ],
+      "properties": {
+        "recordKind": {
+          "const": "coverage-receipt"
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopeKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopeId": {
+          "type": "string"
+        },
+        "status": {
+          "enum": ["analyzed", "reused", "skipped", "failed"]
+        },
+        "completeness": {
+          "enum": ["complete", "partial", "fallback", "unavailable"]
+        },
+        "reasonCode": {
+          "description": "Empty for complete evidence; otherwise a stable machine diagnostic code.",
+          "type": "string"
+        },
+        "counts": {
+          "$ref": "#/$defs/countMap"
+        }
+      },
+      "additionalProperties": false
+    },
+    "expansionHandle": {
+      "type": "object",
+      "required": ["kind", "reference", "hint"],
+      "properties": {
+        "kind": {
+          "enum": ["candidate", "capability", "path", "symbol", "source-anchor"]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hint": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
