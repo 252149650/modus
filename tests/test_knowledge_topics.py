@@ -16,6 +16,7 @@ from modus.paths import DOMAIN_GENERATED_REFERENCE_KINDS, LEGACY_DOMAIN_REFERENC
 from modus.retrieval import runtime
 from modus.retrieval.index import scan_index
 from modus.retrieval.stages.documents import classify_document, is_rule_evidence
+from modus.retrieval.stages.selection import select_query_targets
 from modus.workspace import _canonical_knowledge_observation
 
 PREFIX = "modus/knowledge/domain/tasks/references/"
@@ -102,6 +103,27 @@ def test_unsupported_nested_paths_are_not_new_modules(tmp_path: Path) -> None:
         assert KnowledgePathIdentity.classify(paths, relative) is None
         assert classify_document(relative)[2]["module"] is None
     assert "module-path-invalid" in run_verify_knowledge(str(tmp_path))["counts"]
+
+
+@pytest.mark.parametrize("name", ["configuration", "rule"])
+def test_related_rules_remain_retrievable_without_loading_unrelated_topics(
+    tmp_path: Path, name: str
+) -> None:
+    paths = _project(tmp_path)
+    target = PREFIX + name + ".md"
+    key = "export_gate_fixture"
+    _put(tmp_path, target, f"# Rules\n## Export\n### Gate\n{key} requires an explicit opt-in.\n")
+    unrelated = PREFIX + "lifecycle.md"
+    _put(tmp_path, unrelated, "# Connections\n\nUnrelated resources.\n")
+    inventory = discover_knowledge(paths, paths.knowledge_dir)
+    selected, _partial, _receipt = select_query_targets(paths, list(inventory.documents), key)
+    relatives = {paths.relative(path) for path in selected}
+    assert {target, ROUTER} <= relatives
+    assert MODULE not in relatives and unrelated not in relatives
+    records = [
+        row for row in scan_index(paths, kind="project")["sections"] if row["path"] == target
+    ]
+    assert any(is_rule_evidence(row) for row in records)
 
 
 def test_configuration_does_not_promote_pending_rules(tmp_path: Path) -> None:

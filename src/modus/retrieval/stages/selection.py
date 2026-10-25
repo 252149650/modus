@@ -133,7 +133,7 @@ def _progressive_router_targets(
 
 
 # 显式定位跳过自动路由，保留用户指定目标的优先级。
-# 父导航与领域规则作为正文配额之外的必要解释材料。
+# 父导航补充解释上下文，专题按查询相关性选择。
 # 扫描超时、截断和候选超限均标记 partial，不能假装检索完整。
 def select_query_targets(
     paths: ModusPaths,
@@ -179,18 +179,13 @@ def select_query_targets(
             scores[relative] += 1000
     ranked = sorted((p for p in by_path if scores[p] > 0), key=lambda p: (-scores[p], p))
     chosen = set(ranked[:limit])
-    domains = {p.split("/")[3] for p in chosen if p.startswith("modus/knowledge/domain/")}
-    # Parent navigation and related domain rules are supplemental to the body quota.
-    for relative in by_path:
-        if any(
-            relative
-            in {
-                f"modus/knowledge/domain/{domain}/SKILL.md",
-                f"modus/knowledge/domain/{domain}/references/rule.md",
-            }
-            for domain in domains
-        ):
-            chosen.add(relative)
+    # Domain navigation supplements results; topics compete by query relevance.
+    for relative in tuple(chosen):
+        _source, _authority, scope = classify_document(relative)
+        if domain := scope["domain"]:
+            router = f"modus/knowledge/domain/{domain}/SKILL.md"
+            if router in by_path:
+                chosen.add(router)
     # Unmatched project declarations remain candidates for semantic applicability,
     # never automatically established rules. Reading two small entry files does not
     # require them to exist, and a direct query can reach any other constraint.
