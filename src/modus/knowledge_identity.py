@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final, Literal, TypeAlias
 
-from .paths import ModusPaths
+from .paths import DOMAIN_GENERATED_REFERENCE_KINDS, LEGACY_DOMAIN_REFERENCE_KINDS, ModusPaths
 from .scope_models import ScopeRef
 
 OwnershipPlane: TypeAlias = Literal["human", "business", "machine", "mixed"]
@@ -25,14 +25,7 @@ PathKind: TypeAlias = Literal[
 
 _KNOWLEDGE_PREFIX: Final = ("modus", "knowledge")
 _DOMAIN_GENERATED_FILES: Final = frozenset(
-    {
-        "api.md",
-        "downstream.md",
-        "infrastructure.md",
-        "object.md",
-        "rule.md",
-        "state_machine.md",
-    }
+    f"{kind}.md" for kind in (*DOMAIN_GENERATED_REFERENCE_KINDS, *LEGACY_DOMAIN_REFERENCE_KINDS)
 )
 
 

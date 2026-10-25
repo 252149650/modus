@@ -283,6 +283,22 @@ def test_publication_fails_closed_on_unfulfilled_authoring_commitments(
     } <= codes
 
 
+@pytest.mark.parametrize("name", ["lifecycle", "configuration", "state_machine"])
+def test_publication_accepts_current_and_legacy_topic_visual_targets(
+    tmp_path: Path, name: str
+) -> None:
+    paths = _clean_project(tmp_path)
+    seed_domain_business(tmp_path, ["core"])
+    target = f"modus/knowledge/domain/core/references/{name}.md"
+    _write_publication_card(paths, visual_target=target)
+    _write(
+        tmp_path / target,
+        "# Request\n\n<!-- modus:visual:request-flow -->\n```mermaid\nflowchart LR\n  A --> B\n```\n",
+    )
+    result = run_verify_knowledge(str(tmp_path), publication=True)
+    assert result["status"] == "clean", result
+
+
 # 先建立合法图表豁免，再分别破坏卡版本、覆盖证据和执行模式。
 # 每种失败应对应稳定诊断，避免升级要求被普通未完成状态掩盖。
 # 豁免说明来自读者需要，不强制每个模块都画图。

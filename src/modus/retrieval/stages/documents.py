@@ -127,9 +127,15 @@ def classify_document(relative: str) -> tuple[str, str, dict[str, str | None]]:
         if relative.endswith("/index.md"):
             return "project-business-router", "routing-authority", scope
         return "project-business", "human-authority", scope
-    if domain_index >= 0 and "modules" in parts:
-        scope["module"] = Path(relative).stem
-        return "project-module", "authored-projection", scope
+    if domain_index >= 0:
+        module_tail = parts[domain_index + 2 :]
+        if (
+            len(module_tail) == 3
+            and module_tail[:2] == ["references", "modules"]
+            and module_tail[-1].endswith(".md")
+        ):
+            scope["module"] = module_tail[2][:-3]
+            return "project-module", "authored-projection", scope
     if domain_index >= 0 and relative.endswith("/SKILL.md"):
         return "project-domain", "routing-authority", scope
     if domain_index >= 0:
@@ -141,6 +147,8 @@ _FACET_STEMS = {
     "team-standard": "rule",
     "api": "api",
     "downstream": "downstream",
+    "configuration": "rule",
+    "lifecycle": "state_machine",
     "infrastructure": "infrastructure",
     "object": "object",
     "rule": "rule",
@@ -180,7 +188,16 @@ _GENERIC_MODULE_HEADING_FACETS = {
 
 # H3 is a business entry in these canonical facet documents. Elsewhere, H3
 # may be a subsection such as Preconditions/Failure and stays with its parent.
-_ENTRY_FACET_FILES = {"api", "downstream", "infrastructure", "object", "rule", "state_machine"}
+_ENTRY_FACET_FILES = {
+    "api",
+    "downstream",
+    "configuration",
+    "lifecycle",
+    "infrastructure",
+    "object",
+    "rule",
+    "state_machine",
+}
 _ENTRY_CONTAINER_HEADINGS = {
     "接口详解",
     "逐对象定义",

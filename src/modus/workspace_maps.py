@@ -105,11 +105,13 @@ def _maps_for_knowledge_entry(entry: str) -> tuple[str, ...]:
         return ("capability-map",)
     if "/references/modules/" in entry:
         return ("feature-map",)
-    if name in {"api.md", "downstream.md"}:
+    if name == "api.md":
+        return "service-map", "contract-map", "object-map"
+    if name == "downstream.md":
         return "service-map", "contract-map"
     if name == "object.md":
         return ("object-map",)
-    if name == "infrastructure.md":
+    if name in {"configuration.md", "lifecycle.md", "infrastructure.md"}:
         return "infrastructure-map", "delivery-map"
     return ()
 

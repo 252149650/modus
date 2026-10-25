@@ -43,6 +43,13 @@ MANAGED_ROOT_FILES: Final[tuple[str, ...]] = ("CLAUDE.md", "AGENTS.md", "CODEBUD
 DOMAIN_GENERATED_REFERENCE_KINDS: Final[tuple[str, ...]] = (
     "api",
     "downstream",
+    "configuration",
+    "lifecycle",
+)
+
+LEGACY_DOMAIN_REFERENCE_KINDS: Final[tuple[str, ...]] = (
+    "api",
+    "downstream",
     "infrastructure",
     "object",
     "rule",
@@ -292,6 +299,7 @@ class ModusPaths:
 __all__ = [
     "BUSINESS_REFERENCE_KINDS",
     "DOMAIN_GENERATED_REFERENCE_KINDS",
+    "LEGACY_DOMAIN_REFERENCE_KINDS",
     "MANAGED_ROOT_FILES",
     "ModusPaths",
     "PLATFORM_OUTPUT_DIRS",

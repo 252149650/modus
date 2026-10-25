@@ -23,6 +23,7 @@ from .artifacts_io import CorruptArtifactError
 from .config import ModusConfig
 from .paths import (
     DOMAIN_GENERATED_REFERENCE_KINDS,
+    LEGACY_DOMAIN_REFERENCE_KINDS,
     PROJECT_OUTPUT_DIRS,
     ModusPaths,
 )
@@ -317,15 +318,20 @@ def _formal_domain_directories(paths: ModusPaths, documents: set[Path]) -> list[
 
 
 # 必需导航产物统一从共享种类表展开，避免各成员使用不同完整性标准。
-def _required_domain_documents(domains: Sequence[Path]) -> list[Path]:
-    """Expand formal domains into their complete generated navigation contract."""
+def _required_domain_documents(domains: Sequence[Path], documents: set[Path]) -> list[Path]:
+    """Accept the four-topic layout without requiring legacy documents to migrate."""
 
     required: list[Path] = []
     for domain in domains:
-        required.append(domain / "SKILL.md")
-        required.extend(
-            domain / "references" / f"{kind}.md" for kind in DOMAIN_GENERATED_REFERENCE_KINDS
+        references = domain / "references"
+        current = {references / f"{kind}.md" for kind in DOMAIN_GENERATED_REFERENCE_KINDS}
+        legacy = {references / f"{kind}.md" for kind in LEGACY_DOMAIN_REFERENCE_KINDS}
+        uses_legacy = not current <= documents and (
+            legacy <= documents
+            or (bool((legacy - current) & documents) and not (current - legacy) & documents)
         )
+        required.append(domain / "SKILL.md")
+        required.extend(sorted(legacy if uses_legacy else current))
     return required
 
 
@@ -359,7 +365,7 @@ def _canonical_knowledge_observation(
     else:
         missing.append(_workspace_evidence_path(member, paths, paths.architecture_overview))
 
-    for target in _required_domain_documents(formal_domains):
+    for target in _required_domain_documents(formal_domains, document_set):
         if target in document_set:
             evidence.append(_workspace_evidence_path(member, paths, target))
         else:
