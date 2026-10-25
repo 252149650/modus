@@ -37,6 +37,17 @@ def test_packaged_template_tree_is_complete_and_self_contained() -> None:
         assert_local_markdown_links_resolve(path, root=templates_dir())
 
 
+@pytest.mark.parametrize("name", ["index.md", "client-dtmp.md"])
+def test_evidence_guides_are_projected_without_content_rewriting(tmp_path: Path, name: str) -> None:
+    relative = f"references/authoring/evidence/{name}"
+    expected = TemplateCatalog().read(f"skills/using-modus/{relative}")
+    scaffold_project(tmp_path, ["codebuddy", "codex"])
+    for base in (".modus/skills", ".codebuddy/skills", ".agents/skills"):
+        target = tmp_path / base / "using-modus" / relative
+        assert target.read_text(encoding="utf-8") == expected
+        assert_local_markdown_links_resolve(target, root=tmp_path / base)
+
+
 # 空描述会产生无意义的命令入口，必须在渲染前拒绝。
 def test_catalog_rejects_invalid_command_metadata(tmp_path: Path) -> None:
     command = tmp_path / "commands/example.md"
