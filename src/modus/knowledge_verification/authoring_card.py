@@ -19,6 +19,8 @@ from .models import VerificationFinding, finding
 
 CARD_DOCUMENT: Final = "modus/.cache/knowledge-authoring/scope-confirmation.md"
 AUTHORING_SCHEMA_VERSION: Final = 2
+MAX_AUTHORING_CARD_BYTES: Final = 16 * 1024 * 1024
+MAX_AUTHORING_CARD_NODES: Final = 200_000
 
 _MODULE_STATUSES: Final = frozenset({"pending", "evidence-ready", "authored", "reviewed"})
 _EVIDENCE_STATUSES: Final = frozenset({"pending", "ready", "blocked"})
@@ -48,7 +50,7 @@ def load_authoring_plan(
 
     try:
         text = read_bound_regular_text(
-            paths.root, paths.scope_confirmation_path, max_bytes=2 * 1024 * 1024
+            paths.root, paths.scope_confirmation_path, max_bytes=MAX_AUTHORING_CARD_BYTES
         )
     except BoundKnowledgeReadError as exc:
         return None, [
@@ -58,7 +60,9 @@ def load_authoring_plan(
                 f"发布需要唯一执行卡： {exc.kind}",
             )
         ]
-    frontmatter, _body = split_frontmatter(text)
+    frontmatter, _body = split_frontmatter(
+        text, max_chars=MAX_AUTHORING_CARD_BYTES, max_nodes=MAX_AUTHORING_CARD_NODES
+    )
     modus = string_mapping(frontmatter.get("modus"))
     authoring = string_mapping(modus.get("authoring") if modus is not None else None)
     if authoring is None:
@@ -98,6 +102,13 @@ def load_authoring_plan(
             )
         )
         return None, findings
+    if "sourceReview" in authoring:
+        from ..scope_reconciliation import validate_source_review
+
+        findings.extend(
+            finding(CARD_DOCUMENT, "authoring-source-review-invalid", detail)
+            for detail in validate_source_review(authoring["sourceReview"], domains)
+        )
     return domains, findings
 
 

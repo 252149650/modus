@@ -9,7 +9,7 @@ description: 全面评审并重建知识快照，保留稳定业务身份及人�
 
 ## 先盘点，再证明变化
 
-完整读取现有正文与哈希，将目标归为 `unchanged`、`anchor-only`、`implementation-change`、`scope-change`、`content-repair`、疑似退役或人工正文。稳定身份和主定义默认复用；源码路径/符号移动只修锚点，正文布局变化不是 Scope 变化。
+用户提供新的分类材料时先按[来源对照](../using-modus/references/authoring/evidence/scope-sources.md)核对身份、来源差异和职责；材料更名不自动改变既有 Scope。完整读取现有正文与哈希，将目标归为 `unchanged`、`anchor-only`、`implementation-change`、`scope-change`、`content-repair`、疑似退役或人工正文。稳定身份和主定义默认复用；源码路径/符号移动只修锚点，正文布局变化不是 Scope 变化。
 
 `content-repair` 包括：通用模板段落替代真实场景、代表锚点替代事实、跨 Module 复制、完成/失败语义不清、复杂关系缺少能显著帮助理解的图表。真正满足读者任务且事实未变的正文保持 `unchanged` 并跳写。
 

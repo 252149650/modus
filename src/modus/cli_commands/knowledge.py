@@ -179,6 +179,53 @@ def knowledge_verify_anchors_cmd(
         raise typer.Exit(4)
 
 
+@knowledge_app.command(
+    cls=ModusCommand,
+    name="scope-compare",
+    help="只读对照分类材料与源码候选，输出待审阅归属，不确认范围或写入知识。",
+)
+def knowledge_scope_compare_cmd(
+    input_file: str = typer.Option(..., "--input", help="显式来源清单JSON，来源路径相对项目根。"),
+    root: str = typer.Option(".", "--root", help="待分析项目根。"),
+    allow_root: Annotated[
+        list[str] | None,
+        typer.Option(
+            "--allow-root", help="额外授权的本地材料读取根，可重复；清单不能自行扩大权限。"
+        ),
+    ] = None,
+    json_output: bool = typer.Option(False, "--json", help="输出完整候选和来源对照。"),
+) -> None:
+    from ..scope_reconciliation import compare_scope_sources
+    from ..scope_sources import ScopeSourceError
+
+    try:
+        result = compare_scope_sources(root, input_file, allowed_roots=tuple(allow_root or ()))
+    except (ScopeSourceError, OSError) as exc:
+        if json_output:
+            typer.echo(
+                json.dumps(
+                    {
+                        "status": "error",
+                        "error": {"code": "scope-input-invalid", "message": str(exc)},
+                    },
+                    ensure_ascii=False,
+                )
+            )
+        else:
+            public_error(str(exc), json_output=False)
+        raise typer.Exit(2) from exc
+    if json_output:
+        typer.echo(json.dumps(result, ensure_ascii=False))
+    else:
+        counts = result["summary"]
+        typer.echo(
+            f"来源 {counts['sources']} 份，记录 {counts['records']} 条；建议 {counts.get('suggested', 0)}，冲突 {counts.get('conflict', 0)}，未匹配/场景 {counts.get('pending', 0)}，不可用来源 {counts['unavailableSources']}，不可用源码定位 {counts['unavailableLocations']}，身份冲突组 {counts['identityConflicts']}，暂缓映射 {counts['deferredMappings']}。"
+        )
+        typer.echo("尚未确认范围或写入知识；使用 --json 查看逐项来源和候选。")
+    if result["status"] == "partial":
+        raise typer.Exit(4)
+
+
 # 同步入口只生成受影响知识的提示，不代替作者改写主定义。
 # 冲突返回非零退出码，便于调用方停止后续自动化。
 @knowledge_app.command(

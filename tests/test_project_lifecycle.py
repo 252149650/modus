@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -66,7 +67,44 @@ def test_cli_exposes_the_supported_entrypoints() -> None:
 
     version_result = runner.invoke(app, ["--version"])
     assert version_result.exit_code == 0
-    assert __version__ in version_result.output
+    assert version_result.output.strip() == __version__
+
+
+def test_release_version_sources_are_consistent() -> None:
+    root = Path(__file__).resolve().parents[1]
+    project = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))
+    lock = tomllib.loads((root / "uv.lock").read_text(encoding="utf-8"))
+    package = next(p for p in lock["package"] if p["name"] == project["project"]["name"])
+    assert project["project"]["version"] == package["version"] == __version__
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected"),
+    [
+        ("0.50", "0.51", "major"),
+        ("0.0.5", "0.51", "major"),
+        ("0.51", "0.51.0", "none"),
+        ("0.51.0", "0.51", "none"),
+        ("0.51", "0.51.1", "patch"),
+        ("0.51", "0.50", "downgrade"),
+        ("1.50", "1.51", "minor"),
+        ("1.51", "2.0", "major"),
+    ],
+)
+def test_two_component_version_comparison_preserves_update_guards(
+    old: str, new: str, expected: str
+) -> None:
+    from modus.versioning import bump_kind
+
+    assert bump_kind(old, new) == expected
+
+
+@pytest.mark.parametrize("value", ["0", "0.", ".51", "0.51.1.2", "invalid"])
+def test_invalid_framework_versions_still_fail(value: str) -> None:
+    from modus.versioning import Version
+
+    with pytest.raises(ValueError):
+        Version.parse(value)
 
 
 # 状态查询在未安装且含空格中文的目录中也应保持只读。

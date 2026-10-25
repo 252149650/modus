@@ -1,6 +1,6 @@
 [project]
 name = "openmodus"
-version = "0.0.5"
+version = "0.51"
 description = "为编程助手构建有证据支撑、可持续维护的项目知识。"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -57,6 +57,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+materials = ["openpyxl==3.1.5"]
+
 # One explicit verification surface keeps contributor and CI environments aligned.
 # Upper bounds turn major tooling upgrades into reviewed maintenance decisions.
 test = [

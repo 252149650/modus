@@ -31,16 +31,32 @@ class _UnsafeFrontmatter(ValueError):
 class _BoundedSafeLoader(yaml.SafeLoader):
     """SafeLoader with construction-time depth, node, and cycle limits."""
 
-    def __init__(self, stream: str) -> None:
+    def __init__(self, stream: str, *, max_nodes: int = _MAX_FRONTMATTER_NODES) -> None:
         super().__init__(stream)
+        self._modus_max_nodes = max_nodes
         self._modus_nodes = 0
         self._modus_depth = 0
         self._modus_active_anchors: set[str] = set()
+        self._modus_merge_nodes = 0
+
+    def flatten_mapping(self, node):
+        for key, value in node.value:
+            if key.tag != "tag:yaml.org,2002:merge":
+                continue
+            merged_nodes = value.value if isinstance(value, yaml.SequenceNode) else [value]
+            for merged in merged_nodes:
+                if not isinstance(merged, yaml.MappingNode):
+                    continue
+                self.flatten_mapping(merged)
+                self._modus_merge_nodes += 2 * len(merged.value)
+                if self._modus_merge_nodes + self._modus_nodes > self._modus_max_nodes:
+                    raise _UnsafeFrontmatter("frontmatter 合并展开超过预算")
+        super().flatten_mapping(node)
 
     def compose_node(self, parent, index):
         event = self.peek_event()
         self._modus_nodes += 1
-        if self._modus_nodes > _MAX_FRONTMATTER_NODES:
+        if self._modus_nodes > self._modus_max_nodes:
             raise _UnsafeFrontmatter("frontmatter 节点超过预算")
 
         is_collection = isinstance(
@@ -79,7 +95,7 @@ def _collection_children(value: object) -> tuple[object, ...] | None:
     return None
 
 
-def _validate_loaded_yaml_graph(value: object) -> None:
+def _validate_loaded_yaml_graph(value: object, *, max_nodes: int = _MAX_FRONTMATTER_NODES) -> None:
     """Bound alias-expanded traversal and reject cycles in constructed values."""
     # Frames are (entering, value, depth). Exit frames make the active set an
     # ancestry set rather than a global de-dup set, so harmless shared aliases
@@ -93,7 +109,7 @@ def _validate_loaded_yaml_graph(value: object) -> None:
         if children is None:
             if entering:
                 nodes += 1
-                if nodes > _MAX_FRONTMATTER_NODES:
+                if nodes > max_nodes:
                     raise _UnsafeFrontmatter("展开后的 frontmatter 节点超过预算")
             continue
 
@@ -102,7 +118,7 @@ def _validate_loaded_yaml_graph(value: object) -> None:
             active.remove(identity)
             continue
         nodes += 1
-        if nodes > _MAX_FRONTMATTER_NODES:
+        if nodes > max_nodes:
             raise _UnsafeFrontmatter("展开后的 frontmatter 节点超过预算")
         if depth > _MAX_FRONTMATTER_DEPTH:
             raise _UnsafeFrontmatter("展开后的 frontmatter 深度超过预算")
@@ -113,8 +129,13 @@ def _validate_loaded_yaml_graph(value: object) -> None:
         stack.extend((True, child, depth + 1) for child in reversed(children))
 
 
-def split_frontmatter(text: str) -> tuple[dict[str, Any], str]:
-    """Split ``text`` into ``(frontmatter_dict, body)``.
+def split_frontmatter(
+    text: str,
+    *,
+    max_chars: int = _MAX_FRONTMATTER_CHARS,
+    max_nodes: int = _MAX_FRONTMATTER_NODES,
+) -> tuple[dict[str, Any], str]:
+    """Split ``text`` with caller-owned budgets and fixed depth/cycle guards.
 
     Returns ``({}, text)`` when there is no leading ``---`` frontmatter block or
     when it does not parse as a YAML mapping.
@@ -124,16 +145,16 @@ def split_frontmatter(text: str) -> tuple[dict[str, Any], str]:
         return {}, text
     try:
         source = m.group(1)
-        if len(source) > _MAX_FRONTMATTER_CHARS:
+        if len(source) > max_chars:
             raise _UnsafeFrontmatter("frontmatter 字符数超过预算")
         # Construct through SafeLoader directly so its resource bounds remain in
         # force; safe_load() alone would discard our depth and alias guards.
-        loader = _BoundedSafeLoader(source)
+        loader = _BoundedSafeLoader(source, max_nodes=max_nodes)
         try:
             data = loader.get_single_data()
         finally:
             loader.dispose()
-        _validate_loaded_yaml_graph(data)
+        _validate_loaded_yaml_graph(data, max_nodes=max_nodes)
     except (yaml.YAMLError, RecursionError, _UnsafeFrontmatter):
         return {}, text
     if not isinstance(data, dict):

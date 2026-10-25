@@ -196,6 +196,13 @@ CLI_COMMANDS: Final[tuple[CliCommand, ...]] = (
         usage=('modus context resolve "question" --scope project-read',),
     ),
     CliCommand(
+        key="knowledge scope-compare",
+        short="对照分类来源",
+        role="内部只读范围辅助",
+        purpose="对照显式分类材料与源码候选，保留身份和未决项，不自动确认或写入知识。",
+        usage=("modus knowledge scope-compare --input sources.json --root . --json",),
+    ),
+    CliCommand(
         key="knowledge verify",
         short="核验知识契约",
         role="内部知识核验",

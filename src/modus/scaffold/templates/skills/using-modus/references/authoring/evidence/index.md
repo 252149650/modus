@@ -7,7 +7,7 @@
 本目录是正文作者唯一的共享取证指南。先判断要回答的问题，再加载最小必要参考：
 
 1. 读取[机器证据包](machine-packet.md)，理解 proposal、witness、coverage、ambiguity、omitted count 和展开句柄的边界。
-2. 建立或复核 Domain/Module 时读取[Scope 建模](scope-modeling.md)。
+2. 建立或复核 Domain/Module 时读取[Scope 建模](scope-modeling.md)；有明确分类材料时再读[来源对照](scope-sources.md)，不因材料名称直接改变业务身份。
 3. 为契约、对象和场景形成可发布事实时读取[场景闭合](scenario-closure.md)。
 4. 按实际构建单元只加载相关[语言适配器](language-adapters/index.md)。
 5. 按已确认的项目机制补充取证指南；项目使用 DTMP 时读取[DTMP 架构与绑定](client-dtmp.md)，先区分共享逻辑、生成门面与平台实现，再沿实际输入、结果回流和生命周期核对。其他项目不加载；专用指南不改变通用产物与身份契约。

@@ -11,7 +11,7 @@ import re
 from dataclasses import dataclass
 from typing import Final, Literal
 
-_VERSION_RE: Final = re.compile(r"^(\d+)\.(\d+)\.(\d+)(?:[-+].*)?$")
+_VERSION_RE: Final = re.compile(r"^(\d+)\.(\d+)(?:\.(\d+))?(?:[-+].*)?$")
 VersionChange = Literal["major", "minor", "patch", "none", "downgrade"]
 
 
@@ -28,7 +28,7 @@ class Version:
         match = _VERSION_RE.match(value.strip())
         if not match:
             raise ValueError(f"语义版本无效： {value!r}")
-        return cls(int(match.group(1)), int(match.group(2)), int(match.group(3)))
+        return cls(int(match.group(1)), int(match.group(2)), int(match.group(3) or 0))
 
     def __str__(self) -> str:
         return f"{self.major}.{self.minor}.{self.patch}"
