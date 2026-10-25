@@ -27,7 +27,7 @@
 
 - 先读[稳定布局](layout.md)和[本地化](localization.md)。
 - 按运行入口组合[Surface 画像](surface-profiles.md)，不要按语言选择正文模板。
-- 按产物读取[根概览](deliverables/root.md)、[Domain](deliverables/domain.md)、[六专题](deliverables/topics.md)、[Module](deliverables/module.md)及特殊人工产物合同。
+- 按产物读取[根概览](deliverables/root.md)、[Domain](deliverables/domain.md)、[Module](deliverables/module.md)和[四专题](deliverables/topics.md)及其对应合同。新建域覆盖四专题；局部更新只读受影响的合同，不因此扩大范围。
 - 复杂关系再读[图文表达](visual-expression.md)。
 
 事实只在一个主落点完整定义。其他页面说明该事实在当前上下文中的作用，并精确链接主定义；不得复制整段定义或完整 Mermaid。源码位置只写入生成文档 frontmatter 的少量 `anchors.locations`；读者正文不出现完整源码路径、行号或证据清单。
@@ -36,4 +36,6 @@
 
 高质量正文通常遵循“总览定位 → 真实条目/场景详情 → 解释型图表 → 失败与恢复 → 修改和验证入口”。表格不是为了凑格式，而是承载字段、条件、状态或责任的精确对照；图不是装饰，而是解释正文难以快速表达的方向、层次和时序。
 
-每个 Domain 都必须先把六专题、Module 和路由写完整并回读，才算一个可验收批次。默认依次完成；用户明确授权且宿主支持时，互不重叠的完整 Domain 可以按[并行撰写协议](../parallel-domain-authoring.md)由不同正文所有者并行，但同一 Domain 内仍按唯一主定义共同闭环。不得先批量生成同长度短文、统一三段式骨架或只有类名与行首锚点的“已完成文件”。作者在每个产物的专用合同中回答具体读者问题，不能只阅读本索引后凭通用模板写作。
+以确认范围内的 Domain 为验收批次：四专题定义共享事实，Module 串起完整任务，Domain 提供边界和导航。新域四专题必须交付；不存在的机制写明核验范围与原因，不生成占位表。旧域未获迁移授权时保持原主定义。默认依次完成；用户明确授权时可按[并行撰写协议](../parallel-domain-authoring.md)处理互不重叠的 Domain，同一 Domain 只有一个正文所有者。
+
+文件齐全不代表问题已经回答。回读职责现状、数据流、复用条件、扩展限制和失败恢复，既检查独立可读，也检查片段摘取后是否保留条件与例外；不以固定篇幅、符号清单或机械通过替代内容验收。

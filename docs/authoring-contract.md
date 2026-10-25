@@ -87,7 +87,7 @@ K6 核验发布 ← K5 系统组装 ← K4 领域成稿
 
 由通用读者问题、模块实际运行形态的并集、语言证据适配与可用仓库证据组成模块契约。混合语言项目按构建单元分别识别。
 
-共享事实规划唯一去向：接口在 `api.md`，对象在 `object.md`，规则在 `rule.md`，生命周期在 `state_machine.md`，协作在 `downstream.md`，资源在 `infrastructure.md`。模块拥有完整场景叙述并链接共享定义。临时归属图写入执行卡，不新增长期知识产品。
+每个新域固定交付四专题：接口与数据在 `api.md`，协作与影响在 `downstream.md`，规则与配置在 `configuration.md`，状态、资源与观测在 `lifecycle.md`。Module 解释完整任务并引用详细定义，域入口维护边界与导航。旧六专题和分片继续兼容，未获迁移授权时保持原主定义；不引入新的卡片类型、目录层级或元数据版本。临时归属图写入执行卡，不建立第二套长期事实库。
 
 只保留一份 `schemaVersion: 2` 的 `scope-confirmation.md` 执行卡。保存本轮摘要或机器不可用原因、入口处置、稳定 ID、各模块选择器、精确请求范围、证据模式与缺口、以源码为范围的领域覆盖审查、主定义、图表决策、读取时哈希、计划写入/删除与进度。状态字段遵守[运行时范围契约](../src/modus/scaffold/templates/skills/using-modus/references/authoring/evidence/scope-modeling.md)。
 
@@ -148,17 +148,15 @@ Team Standard 仅在缺失或仍为框架种子时初始化。从证据提炼项
 | --- | --- | --- |
 | 根概览 | 目的、运行架构、能力关系、导航、开发排障 | [根概览](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/root.md) |
 | 领域路由 | 读者、输入、结果、权威归属、交接、排除项、专题与模块入口 | [领域](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/domain.md) |
-| `api.md` | 调用者、路由/命令/签名、权限、输入输出、完成、分支、错误与兼容 | [接口](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/api.md) |
-| `object.md` | 身份、真值来源、键、写入者、字段类型/单位/默认/空值、枚举、关系、映射、并发与敏感性 | [对象](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/object.md) |
-| `rule.md` | 性质、范围、触发、输入、条件、优先级、顺序、例外、效果与验证 | [规则](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/rule.md) |
-| `state_machine.md` | 权威/临时/外部状态、触发、守卫、写入、副作用、完成、失败、恢复、幂等 | [状态机](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/state-machine.md) |
-| `downstream.md` | 上下游与宿主协作、映射、决策、交接、所有权、事务、超时重试与未知保证 | [协作](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/collaboration.md) |
-| `infrastructure.md` | 资源所有者、配置优先级、单位默认值、生命周期、一致性、容量、锁、失败与密钥注入 | [基础设施](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/infrastructure.md) |
+| `api.md` | 功能入口、调用承诺、数据身份、字段语义、表示映射与兼容 | [接口与数据](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/api.md) |
+| `downstream.md` | 调用与交接、复用前提、修改影响、失败责任与验证 | [协作与影响](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/collaboration.md) |
+| `configuration.md` | 业务规则、取值来源、优先级、生效分支、回退及静态/运行区别 | [规则与配置](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/configuration.md) |
+| `lifecycle.md` | 状态推进、资源所有权、完成、取消恢复、事件关联及观测 | [状态、资源与观测](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/lifecycle.md) |
 | 模块 | 连贯任务、真实场景、因果行为、恢复、扩展与验证 | [模块](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/module.md) |
 | Team Standard | 有证据的工程约束及其验证方式 | [团队规范](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/team-standard.md) |
 | 业务材料 | 源码无法独立确立的人工概念、经验与场景 | [业务](../src/modus/scaffold/templates/skills/using-modus/references/authoring/framework/deliverables/business.md) |
 
-六个专题入口文件保持稳定。大型接口/对象专题可按语义分片，保留概览与链接；不能每个方法、端点或 DTO 一页，也不在每个专题复制模块清单。
+新域四专题是固定产物，章节和篇幅按事实组织；无适用机制时说明已核验范围与原因，不填空表。旧六专题及 API/Object 分片继续兼容；迁移先确认，再修正文与入链，不由升级自动执行。模块手册保留足够的直接结论，不让读者仅靠跳转拼接基本任务。
 
 模块回应九类问题：`boundary`、`scenario`、`data-state`、`public-entry`、`collaboration`、`runtime`、`constraint`、`recovery`、`implementation`。它们是评审维度，不是九个必需标题。默认按边界、真实场景、实现/扩展/验证组织，按需展开。非平凡场景必须解释不同字段、决策、写入、完成、失败、恢复和验证；表格与方法名不足以闭环。
 

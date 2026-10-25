@@ -5,7 +5,7 @@
 
 # 将适用规则落实到当前任务
 
-先按任务、源码路径和 Domain/Module 确认范围，渐进读取 `modus/knowledge/constraint/` 中相关项目约束、命中域的 `references/rule.md`，以及 Module 中实际存在的 `规则、安全与兼容` 能力块或场景规则。摘要、稳定规则锚点与上层引用用于导航；片段缺少限定条件时回读完整条目。无需全量加载三个层级或固定数量规则。
+先按任务、源码路径和 Domain/Module 确认范围，渐进读取 `modus/knowledge/constraint/` 中相关项目约束、命中域的 `references/configuration.md`（旧域沿用 `references/rule.md`），以及 Module 中实际存在的 `规则、安全与兼容` 能力块或场景规则。摘要、稳定规则锚点与上层引用用于导航；片段缺少限定条件时回读完整条目。无需全量加载三个层级或固定数量规则。
 
 ## 区分性质与证据
 

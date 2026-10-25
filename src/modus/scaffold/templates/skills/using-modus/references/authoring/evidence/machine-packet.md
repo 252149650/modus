@@ -63,4 +63,4 @@ modus internal init-analysis select --root . --bundle-digest <bundleDigest> --ba
 
 context 无匹配证据、source-changed、partial 或 budget-exhausted 时，把具体缺口写入执行卡并直接读取当前源码。不要扩大为无 selector 的 `module-authoring`，不要重新 build，也不要把缺口改写成“能力不存在”。
 
-同一 Domain 内先完成 Module 到精确 selector 的映射，再执行不重复的 context 请求；相同 selector 和双摘要不得因写不同专题而重跑，互不依赖的精确请求可并发取得。汇总 packet 给出的 source anchor、path 和 symbol，去重后分批读取当前源码，一次场景调查同时服务六专题与 Module。只有结论改变或证据缺口需要定向补证时才追加读取，避免逐文件、逐章节反复 `sed`/搜索。同一 Domain 只能有一个正文所有者；用户明确授权时，不同完整 Domain 可以按[并行撰写协议](../parallel-domain-authoring.md)由不同作者处理。
+同一 Domain 内先完成 Module 到精确 selector 的映射，再执行不重复的 context 请求；相同 selector 和双摘要不得因写不同专题而重跑，互不依赖的精确请求可并发取得。汇总 packet 给出的 source anchor、path 和 symbol，去重后分批读取当前源码，一次场景调查同时服务四专题与 Module。只有结论改变或证据缺口需要定向补证时才追加读取，避免逐文件、逐章节反复 `sed`/搜索。同一 Domain 只能有一个正文所有者；用户明确授权时，不同完整 Domain 可以按[并行撰写协议](../parallel-domain-authoring.md)由不同作者处理。

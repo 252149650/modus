@@ -12,7 +12,7 @@ from modus.knowledge_identity import KnowledgePathIdentity
 from modus.knowledge_update import update_knowledge
 from modus.knowledge_verification.discovery import discover_knowledge
 from modus.orchestrator import knowledge_sync
-from modus.paths import ModusPaths
+from modus.paths import DOMAIN_GENERATED_REFERENCE_KINDS, LEGACY_DOMAIN_REFERENCE_KINDS, ModusPaths
 from modus.retrieval import runtime
 from modus.retrieval.index import scan_index
 from modus.retrieval.stages.documents import classify_document, is_rule_evidence
@@ -166,3 +166,17 @@ def test_workspace_missing_paths_follow_the_selected_layout(
     state, _evidence, missing, _issues = _canonical_knowledge_observation({"path": "."}, paths)
     assert state == "partial"
     assert any(path.endswith(missing_name) for path in missing)
+
+
+def test_topic_contracts_are_projected_without_new_metadata(tmp_path: Path) -> None:
+    from modus.scaffold import TemplateCatalog, scaffold_project
+
+    assert DOMAIN_GENERATED_REFERENCE_KINDS == TOPICS
+    assert set(LEGACY_DOMAIN_REFERENCE_KINDS) == set(LEGACY)
+    scaffold_project(tmp_path, ["codebuddy"])
+    catalog = TemplateCatalog()
+    for name in ("topics", "api", "collaboration", "configuration", "lifecycle", "module"):
+        relative = f"references/authoring/framework/deliverables/{name}.md"
+        expected = catalog.read(f"skills/using-modus/{relative}")
+        for base in (".modus/skills", ".codebuddy/skills"):
+            assert (tmp_path / base / "using-modus" / relative).read_text() == expected

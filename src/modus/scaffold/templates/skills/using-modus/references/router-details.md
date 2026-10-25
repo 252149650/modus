@@ -12,8 +12,8 @@
 接口、符号或知识文件时直达；范围未知时：
 
 1. 读 `modus/knowledge/architecture-overview.md` 选择相关 Domain。
-2. 读 Domain `SKILL.md` 选择 Module 与专题。
-3. 读完整相关 Module、rule/api/object/state_machine 等正文。
+2. 读 Domain `SKILL.md` 选择相关 Module 与专题。
+3. 按问题读取 Module 和四专题中的相关正文：接口/数据读 `api.md`，协作/影响读 `downstream.md`，规则/配置读 `configuration.md`，状态/资源/观测读 `lifecycle.md`；旧域继续读取原主定义。固定生产四专题不等于每次检索全部加载。
 4. 回到当前源码、配置、契约与实际 diff 核验结论。
 
 一次只加载当前判断需要的范围；截断时沿准确标题或源码坐标续读。知识

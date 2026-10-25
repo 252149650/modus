@@ -77,7 +77,7 @@ modus:
         visuals:
           - id: order-lifecycle
             kind: mermaid
-            target: modus/knowledge/domain/order/references/state_machine.md
+            target: modus/knowledge/domain/order/references/lifecycle.md
             status: planned
             readerQuestion: 订单怎样从受理推进到可见完成？
             mechanism: 多参与方推进持久状态并包含失败恢复
