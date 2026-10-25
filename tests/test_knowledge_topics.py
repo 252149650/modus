@@ -126,6 +126,31 @@ def test_related_rules_remain_retrievable_without_loading_unrelated_topics(
     assert any(is_rule_evidence(row) for row in records)
 
 
+@pytest.mark.parametrize("name", ["configuration", "rule"])
+def test_change_context_keeps_rule_preconditions_and_recovery(tmp_path: Path, name: str) -> None:
+    from modus.orchestrator.context_resolver import resolve_context
+
+    _project(tmp_path)
+    target = PREFIX + name + ".md"
+    _put(
+        tmp_path,
+        target,
+        "# Rules\n## Export\n### Write\nOnly the active session writes.\n"
+        "#### Failure\nexport_failure_fixture keeps the previous file.\n"
+        "#### Recovery\nRetry with the same identity.\n",
+    )
+    result = resolve_context(
+        str(tmp_path),
+        "export_failure_fixture",
+        scope="project-read",
+        explicit_paths=[target],
+        purpose="change",
+    )
+    excerpts = [row["excerpt"] for row in result["evidence"] if row.get("path") == target]
+    assert excerpts, result
+    assert any("active session" in text and "Recovery" in text for text in excerpts)
+
+
 def test_configuration_does_not_promote_pending_rules(tmp_path: Path) -> None:
     paths = _project(tmp_path)
     target = PREFIX + "configuration.md"

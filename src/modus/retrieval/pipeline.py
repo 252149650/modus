@@ -306,8 +306,8 @@ def _applicable_constraints(
             tiers[tier],
             key=lambda value: (-value[0], value[1]["path"], value[1]["lineStart"]),
         )
-        selected.extend(_knowledge_ref(item) for _score, item in ranked[:limit])
-    return selected
+        selected.extend(item for _score, item in ranked[:limit])
+    return _entry_refs(index, selected)
 
 
 # 知识锚点需在当前文件重新验证范围与符号，不能只相信旧行号。
