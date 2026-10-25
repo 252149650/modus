@@ -10,6 +10,7 @@
 2. 建立或复核 Domain/Module 时读取[Scope 建模](scope-modeling.md)。
 3. 为契约、对象和场景形成可发布事实时读取[场景闭合](scenario-closure.md)。
 4. 按实际构建单元只加载相关[语言适配器](language-adapters/index.md)。
+5. 按已确认的项目机制补充取证指南；项目使用 DTMP 时读取[DTMP 适配说明](client-dtmp.md)，其他项目不加载。专用指南补充调查重点，不改变通用产物与身份契约。
 
 ## 证据优先级
 
